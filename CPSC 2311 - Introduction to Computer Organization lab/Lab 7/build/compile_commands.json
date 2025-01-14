@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/Lab_7.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Lab_7.dir\\ppmDriver.c.obj -c \"C:\\Users\\sfarr\\OneDrive\\Desktop\\cpsc 2310\\Lab 7\\ppmDriver.c\"",
+  "file": "C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/ppmDriver.c",
+  "output": "CMakeFiles/Lab_7.dir/ppmDriver.c.obj"
+},
+{
+  "directory": "C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/Lab_7.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\Lab_7.dir\\ppmUtil.c.obj -c \"C:\\Users\\sfarr\\OneDrive\\Desktop\\cpsc 2310\\Lab 7\\ppmUtil.c\"",
+  "file": "C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/ppmUtil.c",
+  "output": "CMakeFiles/Lab_7.dir/ppmUtil.c.obj"
+}
+]

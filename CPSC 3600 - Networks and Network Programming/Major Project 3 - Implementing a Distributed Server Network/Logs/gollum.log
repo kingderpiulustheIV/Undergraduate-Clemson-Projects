@@ -1,0 +1,92 @@
+2024-12-10 12:11:16,529 - IRCServer[26224] - INFO - Launching client gollum...
+2024-12-10 12:11:16,544 - IRCServer[26224] - INFO - Sending message to b'\x80\x00\x00\x00f\x00\x00\x00\x00\x06\x00\x0bgollum"Test info"'
+2024-12-10 12:11:16,554 - IRCServer[26224] - INFO - Received msg from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x00\x06\x00\x0bgollum"Test info"'"
+2024-12-10 12:11:16,567 - IRCServer[26224] - INFO - Received message from Host ID #1 "b'\x01\x00\x00\x00\x01\x00\x00\x00\x00\x00\x02\x00\x00\x00*Someone has already registered with ID 102'"
+2024-12-10 12:11:16,793 - IRCServer[26224] - INFO - Launching client bilbobaggins...
+2024-12-10 12:11:16,805 - IRCServer[26224] - INFO - Sending message to b'\x80\x00\x00\x00h\x00\x00\x00\x00\x0c\x00\x0bbilbobaggins"Test info"'
+2024-12-10 12:11:16,816 - IRCServer[26224] - INFO - Received msg from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x00\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,828 - IRCServer[26224] - INFO - Sending message to Host ID #1 "b'\x80\x00\x00\x00h\x00\x00\x00\x03\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,843 - IRCServer[26224] - INFO - Received msg from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x03\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,845 - IRCServer[26224] - INFO - Received message from Host ID #3 "b'\x01\x00\x00\x00\x03\x00\x00\x00h\x00\x00\x00\x00\x006Welcome to the Clemson Relay Chat network bilbobaggins'"
+2024-12-10 12:11:16,857 - IRCServer[26224] - INFO - Sending message to Host ID #2 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,859 - IRCServer[26224] - INFO - Received message from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x03\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:16,873 - IRCServer[26224] - INFO - Sending message to Host ID #101 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,879 - IRCServer[26224] - INFO - Received message from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x03\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:16,889 - IRCServer[26224] - INFO - Sending message to Host ID #102 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,894 - IRCServer[26224] - INFO - Received message from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x03\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:16,910 - IRCServer[26224] - INFO - Received msg from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,912 - IRCServer[26224] - INFO - Received message from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,914 - IRCServer[26224] - INFO - Received message from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,923 - IRCServer[26224] - INFO - Sending message to Host ID #103 "b'\x80\x00\x00\x00h\x00\x00\x00\x02\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:16,939 - IRCServer[26224] - INFO - Received message from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x02\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:18,307 - IRCServer[26224] - INFO - Launching server theshire...
+2024-12-10 12:11:18,309 - IRCServer[26224] - INFO - Configuring the server socket...
+2024-12-10 12:11:18,311 - IRCServer[26224] - INFO - Listening for new connections on port 35401
+2024-12-10 12:11:18,561 - IRCServer[26224] - INFO - Launching server rivendale...
+2024-12-10 12:11:18,563 - IRCServer[26224] - INFO - Configuring the server socket...
+2024-12-10 12:11:18,564 - IRCServer[26224] - INFO - Connecting to remote server theshire:35401...
+2024-12-10 12:11:18,565 - IRCServer[26224] - INFO - Listening for new connections on port 35402
+2024-12-10 12:11:18,567 - IRCServer[26224] - INFO - Received msg from Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x00\t\x00\x0frivendale"Elronds House"'"
+2024-12-10 12:11:18,569 - IRCServer[26224] - INFO - Received msg from Host ID #1 "b'\x00\x00\x00\x00\x01\x00\x00\x00\x02\x08\x00\x15theshire"Home of the Hobbits"'"
+2024-12-10 12:11:18,816 - IRCServer[26224] - INFO - Launching client frodobaggins...
+2024-12-10 12:11:18,820 - IRCServer[26224] - INFO - Sending message to b'\x80\x00\x00\x00e\x00\x00\x00\x00\x0c\x00\x0bfrodobaggins"Test info"'
+2024-12-10 12:11:18,825 - IRCServer[26224] - INFO - Received msg from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x00\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:18,827 - IRCServer[26224] - INFO - Sending message to Host ID #2 "b'\x80\x00\x00\x00e\x00\x00\x00\x01\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:18,831 - IRCServer[26224] - INFO - Received msg from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x01\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:18,832 - IRCServer[26224] - INFO - Received message from Host ID #1 "b'\x01\x00\x00\x00\x01\x00\x00\x00e\x00\x00\x00\x00\x006Welcome to the Clemson Relay Chat network frodobaggins'"
+2024-12-10 12:11:19,072 - IRCServer[26224] - INFO - Launching server grey_havens...
+2024-12-10 12:11:19,077 - IRCServer[26224] - INFO - Configuring the server socket...
+2024-12-10 12:11:19,088 - IRCServer[26224] - INFO - Connecting to remote server theshire:35401...
+2024-12-10 12:11:19,099 - IRCServer[26224] - INFO - Listening for new connections on port 35403
+2024-12-10 12:11:19,112 - IRCServer[26224] - INFO - Received msg from Host ID #3 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x00\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2024-12-10 12:11:19,122 - IRCServer[26224] - INFO - Sending message to Host ID #2 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x01\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2024-12-10 12:11:19,134 - IRCServer[26224] - INFO - Received msg from Host ID #3 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x01\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2024-12-10 12:11:19,136 - IRCServer[26224] - INFO - Received msg from Host ID #1 "b'\x00\x00\x00\x00\x01\x00\x00\x00\x03\x08\x00\x15theshire"Home of the Hobbits"'"
+2024-12-10 12:11:19,149 - IRCServer[26224] - INFO - Received msg from Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x01\t\x00\x0frivendale"Elronds House"'"
+2024-12-10 12:11:19,160 - IRCServer[26224] - INFO - Received msg from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x01\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:19,329 - IRCServer[26224] - INFO - Launching client samgamgee...
+2024-12-10 12:11:19,343 - IRCServer[26224] - INFO - Sending message to b'\x80\x00\x00\x00f\x00\x00\x00\x00\t\x00\x0bsamgamgee"Test info"'
+2024-12-10 12:11:19,356 - IRCServer[26224] - INFO - Received msg from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x00\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,366 - IRCServer[26224] - INFO - Sending message to Host ID #2 "b'\x80\x00\x00\x00f\x00\x00\x00\x01\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,377 - IRCServer[26224] - INFO - Sending message to Host ID #3 "b'\x80\x00\x00\x00f\x00\x00\x00\x01\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,388 - IRCServer[26224] - INFO - Sending message to Host ID #101 "b'\x80\x00\x00\x00f\x00\x00\x00\x01\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,399 - IRCServer[26224] - INFO - Received msg from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x01\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,400 - IRCServer[26224] - INFO - Received msg from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x01\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,404 - IRCServer[26224] - INFO - Received message from Host ID #1 "b'\x01\x00\x00\x00\x01\x00\x00\x00f\x00\x00\x00\x00\x003Welcome to the Clemson Relay Chat network samgamgee'"
+2024-12-10 12:11:19,407 - IRCServer[26224] - INFO - Received message from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x01\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,422 - IRCServer[26224] - INFO - Received message from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x01\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:19,586 - IRCServer[26224] - INFO - Launching client elrond...
+2024-12-10 12:11:19,595 - IRCServer[26224] - INFO - Sending message to b'\x80\x00\x00\x00g\x00\x00\x00\x00\x06\x00\x0belrond"Test info"'
+2024-12-10 12:11:19,602 - IRCServer[26224] - INFO - Received msg from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x00\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,616 - IRCServer[26224] - INFO - Sending message to Host ID #1 "b'\x80\x00\x00\x00g\x00\x00\x00\x02\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,630 - IRCServer[26224] - INFO - Received msg from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x02\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,633 - IRCServer[26224] - INFO - Received message from Host ID #2 "b'\x01\x00\x00\x00\x02\x00\x00\x00g\x00\x00\x00\x00\x000Welcome to the Clemson Relay Chat network elrond'"
+2024-12-10 12:11:19,648 - IRCServer[26224] - INFO - Sending message to Host ID #3 "b'\x80\x00\x00\x00g\x00\x00\x00\x01\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,654 - IRCServer[26224] - INFO - Received message from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x02\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:19,664 - IRCServer[26224] - INFO - Sending message to Host ID #101 "b'\x80\x00\x00\x00g\x00\x00\x00\x01\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,677 - IRCServer[26224] - INFO - Received message from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x02\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:19,679 - IRCServer[26224] - INFO - Sending message to Host ID #102 "b'\x80\x00\x00\x00g\x00\x00\x00\x01\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,698 - IRCServer[26224] - INFO - Received message from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x01\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,700 - IRCServer[26224] - INFO - Received msg from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x01\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,704 - IRCServer[26224] - INFO - Received message from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x01\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:19,840 - IRCServer[26224] - INFO - Sending message to b'\x81\x00\x00\x00g\x00\x00\x00\xc9\x00\x00\x00\x13"Testing 1 2 3 4 5"'
+2024-12-10 12:11:19,848 - IRCServer[26224] - INFO - Received msg from Host ID #103 "b'\x81\x00\x00\x00g\x00\x00\x00\xc9\x00\x00\x00\x13"Testing 1 2 3 4 5"'"
+2024-12-10 12:11:19,860 - IRCServer[26224] - INFO - Sending message to an unknown IO device "b'\x01\x00\x00\x00\x02\x00\x00\x00g\x00\x01\x00\x00\x00\x0eUnknown ID 201'"
+2024-12-10 12:11:19,878 - IRCServer[26224] - INFO - Received message from Host ID #2 "b'\x01\x00\x00\x00\x02\x00\x00\x00g\x00\x01\x00\x00\x00\x0eUnknown ID 201'"
+2024-12-10 12:11:20,104 - IRCServer[26224] - INFO - Launching client bilbobaggins...
+2024-12-10 12:11:20,125 - IRCServer[26224] - INFO - Sending message to b'\x80\x00\x00\x00h\x00\x00\x00\x00\x0c\x00\x0bbilbobaggins"Test info"'
+2024-12-10 12:11:20,154 - IRCServer[26224] - INFO - Received msg from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x00\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,169 - IRCServer[26224] - INFO - Sending message to Host ID #1 "b'\x80\x00\x00\x00h\x00\x00\x00\x03\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,183 - IRCServer[26224] - INFO - Received msg from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x03\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,186 - IRCServer[26224] - INFO - Received message from Host ID #3 "b'\x01\x00\x00\x00\x03\x00\x00\x00h\x00\x00\x00\x00\x006Welcome to the Clemson Relay Chat network bilbobaggins'"
+2024-12-10 12:11:20,206 - IRCServer[26224] - INFO - Sending message to Host ID #2 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,208 - IRCServer[26224] - INFO - Received message from Host ID #101 "b'\x80\x00\x00\x00e\x00\x00\x00\x03\x0c\x00\x0bfrodobaggins"Test info"'"
+2024-12-10 12:11:20,224 - IRCServer[26224] - INFO - Sending message to Host ID #101 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,227 - IRCServer[26224] - INFO - Received message from Host ID #102 "b'\x80\x00\x00\x00f\x00\x00\x00\x03\t\x00\x0bsamgamgee"Test info"'"
+2024-12-10 12:11:20,251 - IRCServer[26224] - INFO - Sending message to Host ID #102 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,256 - IRCServer[26224] - INFO - Received message from Host ID #103 "b'\x80\x00\x00\x00g\x00\x00\x00\x03\x06\x00\x0belrond"Test info"'"
+2024-12-10 12:11:20,274 - IRCServer[26224] - INFO - Received message from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,278 - IRCServer[26224] - INFO - Received message from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,280 - IRCServer[26224] - INFO - Received msg from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x01\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,319 - IRCServer[26224] - INFO - Sending message to Host ID #103 "b'\x80\x00\x00\x00h\x00\x00\x00\x02\x0c\x00\x0bbilbobaggins"Test info"'"
+2024-12-10 12:11:20,341 - IRCServer[26224] - INFO - Received message from Host ID #104 "b'\x80\x00\x00\x00h\x00\x00\x00\x02\x0c\x00\x0bbilbobaggins"Test info"'"

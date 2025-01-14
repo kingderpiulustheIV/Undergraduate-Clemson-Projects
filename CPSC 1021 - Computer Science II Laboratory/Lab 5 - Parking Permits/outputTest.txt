@@ -1,0 +1,13 @@
+The price of the permit is: $55
+User Type: TA
+Name: George Lopez
+Address: 123 Tiger Blvd Clemson SC
+Email: jlopez@gmail.com
+Major: Computer science
+ID: 12342441
+Vehicle Type: Low-Emission Vehicle
+Make: Honda
+Model: Civic
+Year: 2014
+Color: Blue
+Type: Hybrid

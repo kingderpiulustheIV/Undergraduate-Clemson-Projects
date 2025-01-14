@@ -1,0 +1,18 @@
+---
+:id: 215768856
+:submitters:
+- :name: Prahalad Arjun Gururajan
+  :email: pgurura@clemson.edu
+- :name: Connor Rusell Burkart
+  :email: crburka@clemson.edu
+- :name: Parthiv Patel
+  :email: parthip@clemson.edu
+- :name: Sean Patrick Farrell
+  :email: spfarre@clemson.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2023-11-28 16:24:32.342603000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2023-11-28 08:24:32.342603000 Z
+:status: processed
+:score: 84.25

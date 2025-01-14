@@ -1,0 +1,3 @@
+C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/cmake-build-debug/CMakeFiles/Lab_7.dir
+C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/sfarr/OneDrive/Desktop/cpsc 2310/Lab 7/cmake-build-debug/CMakeFiles/rebuild_cache.dir

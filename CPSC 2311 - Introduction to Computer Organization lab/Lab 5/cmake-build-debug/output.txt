@@ -1,0 +1,678 @@
+********************************************************************************
+List Info:
+Name:	Eric Vien
+Date of Birth:	3 25, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Cordarro Higgins Redman
+Date of Birth:	6 11, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Connor Pennington
+Date of Birth:	6 7, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Katherine Kreutzer
+Date of Birth:	2 3, 2003
+Major:	CIS-BS
+Year:	Junior
+
+Name:	James  Sherwood 
+Date of Birth:	3 11, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Anthony Moreno
+Date of Birth:	9 6, 2002
+Major:	CS-BS
+Year:	Senior
+
+Name:	Will Seay
+Date of Birth:	1 17, 2001
+Major:	Other
+Year:	Senior
+
+Name:	Russell Baker
+Date of Birth:	12 19, 2001
+Major:	CS-BS
+Year:	Junior
+
+Name:	Alek Moses
+Date of Birth:	5 15, 2000
+Major:	CS-BA
+Year:	Senior
+
+Name:	Christian Norris
+Date of Birth:	2 1, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Owen Merwarth
+Date of Birth:	4 27, 2005
+Major:	CS-BS
+Year:	Freshman
+
+Name:	Stephen Galaida
+Date of Birth:	12 21, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	James Maner
+Date of Birth:	2 6, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Carol Rao
+Date of Birth:	4 16, 2003
+Major:	CS-BA
+Year:	Junior
+
+Name:	Trev Katemba
+Date of Birth:	4 20, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Cameron Scott
+Date of Birth:	10 16, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Isiah Pham
+Date of Birth:	8 8, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jacob Hsu
+Date of Birth:	3 2, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Skyler Wolf
+Date of Birth:	11 12, 2000
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jack Steele
+Date of Birth:	5 7, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Evan Schwartz
+Date of Birth:	8 12, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Trey Larkins
+Date of Birth:	3 19, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Nathan Londhe
+Date of Birth:	7 26, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Janki Patel
+Date of Birth:	7 14, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Malia Fairbanks
+Date of Birth:	3 14, 2004
+Major:	CIS-BS
+Year:	Sophomore
+
+Name:	Caroline Antley
+Date of Birth:	7 11, 2003
+Major:	CS-BS
+Year:	Senior
+
+Name:	Abby Thornton
+Date of Birth:	9 30, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Mills Grimsley
+Date of Birth:	5 3, 2001
+Major:	CIS-BS
+Year:	Junior
+
+Name:	Mendoza Reyes Emilio
+Date of Birth:	3 18, 2004
+Major:	CS-BS
+Year:	Freshman
+
+Name:	James Schvaneveldt
+Date of Birth:	1 6, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Bosworth Chase
+Date of Birth:	10 14, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Hannah Jervis
+Date of Birth:	1 21, 2003
+Major:	CIS-BS
+Year:	Junior
+
+Name:	Ryan Nelson
+Date of Birth:	1 22, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Ethan Waugaman
+Date of Birth:	10 22, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jaxon Nichols
+Date of Birth:	3 15, 2002
+Major:	CS-BA
+Year:	Senior
+
+Name:	Sean Farrell
+Date of Birth:	7 10, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Caleb Newell
+Date of Birth:	8 18, 2003
+Major:	CS-BA
+Year:	Junior
+
+Name:	Jared Alvarado
+Date of Birth:	12 31, 2001
+Major:	CS-BS
+Year:	Senior
+
+Name:	Chuan Wang
+Date of Birth:	9 13, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Ashok Patel
+Date of Birth:	8 8, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Bennett McDowell
+Date of Birth:	1 8, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Matt Cannavaro
+Date of Birth:	10 29, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Noah Broome
+Date of Birth:	12 22, 2000
+Major:	CS-BS
+Year:	Junior
+
+Name:	Tyler Kriney
+Date of Birth:	9 20, 2001
+Major:	Other
+Year:	Senior
+
+Name:	Dev Shah
+Date of Birth:	8 16, 2003
+Major:	CIS-BS
+Year:	Junior
+
+Name:	Elijah Childers
+Date of Birth:	3 24, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Zach Wooten
+Date of Birth:	9 19, 2001
+Major:	CS-BA
+Year:	Junior
+
+Name:	Srineeth Alapati
+Date of Birth:	9 7, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Jackson Eastland
+Date of Birth:	11 18, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	LapFung Chan
+Date of Birth:	7 5, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Kevin Blinn
+Date of Birth:	8 17, 2001
+Major:	CS-BS
+Year:	Senior
+
+Name:	John Riggs
+Date of Birth:	6 17, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Kate Zetrouer
+Date of Birth:	9 13, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Noah Carter
+Date of Birth:	8 13, 2004
+Major:	CS-BA
+Year:	Junior
+
+Name:	Owen Dover
+Date of Birth:	5 28, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Tyce Miller
+Date of Birth:	5 6, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Tennare Jackson
+Date of Birth:	1 13, 2003
+Major:	CS-BS
+Year:	Senior
+
+Name:	William Saunders
+Date of Birth:	8 12, 2000
+Major:	CS-BS
+Year:	Senior
+
+Name:	Liam Cassidy
+Date of Birth:	7 13, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Aaron Corbin
+Date of Birth:	4 7, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Claire Lupton
+Date of Birth:	8 11, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Nicolas Lozano
+Date of Birth:	6 19, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	jenna grossmann
+Date of Birth:	10 17, 2002
+Major:	Other
+Year:	Junior
+
+Name:	Derek Smith
+Date of Birth:	2 3, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jason Russo
+Date of Birth:	1 21, 2003
+Major:	CS-BS
+Year:	Senior
+
+Name:	Brian Wisniewski
+Date of Birth:	7 7, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Davis Little
+Date of Birth:	8 15, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Peter Biltz
+Date of Birth:	2 21, 1992
+Major:	CS-BS
+Year:	Junior
+
+Name:	Aidan Militzer
+Date of Birth:	12 16, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Terrance Pusher
+Date of Birth:	11 28, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Noah Fultz
+Date of Birth:	11 6, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Davis  Katz
+Date of Birth:	11 19, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Daniel Shull
+Date of Birth:	4 18, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	James Kahn
+Date of Birth:	2 16, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Mitchel McFarland
+Date of Birth:	12 1, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Spicer Pagan
+Date of Birth:	2 18, 2005
+Major:	CIS-BS
+Year:	Sophomore
+
+Name:	Arun Singh
+Date of Birth:	8 26, 1996
+Major:	CS-BA
+Year:	Senior
+
+Name:	Ben Schwarz
+Date of Birth:	3 28, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	John McCants
+Date of Birth:	4 21, 2004
+Major:	CS-BA
+Year:	Sophomore
+
+Name:	Noah Carter
+Date of Birth:	8 13, 2004
+Major:	CS-BA
+Year:	Sophomore
+
+Name:	Haydn Washington
+Date of Birth:	12 29, 2003
+Major:	CS-BA
+Year:	Sophomore
+
+Name:	Kelly Cochran
+Date of Birth:	4 8, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Robby Infinger
+Date of Birth:	2 15, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Janani Salai
+Date of Birth:	1 7, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Kaylee Pierce
+Date of Birth:	10 20, 1998
+Major:	CS-BS
+Year:	Junior
+
+Name:	Russ Baker
+Date of Birth:	12 19, 2001
+Major:	CIS-BS
+Year:	Junior
+
+Name:	Derek Smith
+Date of Birth:	2 3, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Randall Reed
+Date of Birth:	7 16, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jonathan Maenche
+Date of Birth:	2 14, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Kalyaan Narnamalpuram Srinivasan
+Date of Birth:	8 13, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Campbell Kemp
+Date of Birth:	4 9, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Nicholas Jordan
+Date of Birth:	3 25, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	N'Kya  McClurkin
+Date of Birth:	8 20, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	James Sherwood
+Date of Birth:	3 11, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Ryan Nelson
+Date of Birth:	1 22, 2003
+Major:	CS-BS
+Year:	Senior
+
+Name:	Stephen Galaida
+Date of Birth:	12 31, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Christian  norris
+Date of Birth:	2 1, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Bryce Getsinger
+Date of Birth:	3 21, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Nicholas Graziani
+Date of Birth:	4 15, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Matthew Cannavaro
+Date of Birth:	10 29, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Frank Fiumefreddo
+Date of Birth:	3 26, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Trevor Katemba
+Date of Birth:	4 20, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Cody Gregory
+Date of Birth:	12 24, 2002
+Major:	CS-BA
+Year:	Junior
+
+Name:	Shyam Patel
+Date of Birth:	8 29, 2004
+Major:	CS-BS
+Year:	Junior
+
+Name:	Stephen Samuelson
+Date of Birth:	6 26, 1997
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Gordon Gregory
+Date of Birth:	8 24, 1993
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	William Saunders
+Date of Birth:	8 12, 2000
+Major:	CS-BS
+Year:	Senior
+
+Name:	Mary-Grace Nelson
+Date of Birth:	6 21, 2001
+Major:	CS-BA
+Year:	Junior
+
+Name:	zachary Wooten
+Date of Birth:	9 19, 2001
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jason Russo
+Date of Birth:	1 21, 2003
+Major:	CS-BS
+Year:	Senior
+
+Name:	Wesley Fletcher
+Date of Birth:	5 19, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Aaron Corbin
+Date of Birth:	4 7, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Jared Burney
+Date of Birth:	11 16, 2003
+Major:	CIS-BS
+Year:	Sophomore
+
+Name:	Quinn Fackrell
+Date of Birth:	1 30, 2001
+Major:	CIS-BS
+Year:	Junior
+
+Name:	Jackson Graham
+Date of Birth:	5 21, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Will Watkins
+Date of Birth:	5 15, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Quinn Fackrell
+Date of Birth:	1 30, 2001
+Major:	CIS-BS
+Year:	Junior
+
+Name:	Matthew Morfogen
+Date of Birth:	4 17, 2003
+Major:	CIS-BS
+Year:	Junior
+
+Name:	John Riggs
+Date of Birth:	6 17, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Dawson Tomes
+Date of Birth:	7 18, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	John Severson
+Date of Birth:	9 17, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Benjamin Holden
+Date of Birth:	1 23, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Jack Meyer
+Date of Birth:	9 19, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Nate Willis
+Date of Birth:	11 4, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Aaron Vannavong
+Date of Birth:	9 28, 2002
+Major:	CS-BS
+Year:	Junior
+
+Name:	Matthew Walker
+Date of Birth:	3 14, 2000
+Major:	CS-BS
+Year:	Senior
+
+Name:	Matthew Walker
+Date of Birth:	3 14, 2000
+Major:	CS-BS
+Year:	Senior
+
+Name:	Devin Evangelista
+Date of Birth:	4 8, 2004
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Ricardo Varona
+Date of Birth:	9 10, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Korey Bryant
+Date of Birth:	9 19, 2003
+Major:	CS-BA
+Year:	Junior
+
+Name:	Connor  Ambrose
+Date of Birth:	11 13, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Parthiv Patel
+Date of Birth:	5 22, 2002
+Major:	CS-BS
+Year:	Senior
+
+Name:	Chase Bosworth
+Date of Birth:	10 14, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+Name:	Drew Fey
+Date of Birth:	1 6, 2003
+Major:	CS-BS
+Year:	Junior
+
+Name:	Aaron Macolini
+Date of Birth:	11 14, 2003
+Major:	CS-BS
+Year:	Sophomore
+
+********************************************************************************
