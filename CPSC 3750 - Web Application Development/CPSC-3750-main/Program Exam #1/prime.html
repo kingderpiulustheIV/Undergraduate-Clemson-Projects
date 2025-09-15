@@ -1,0 +1,59 @@
+<!-- 
+// Sean Farrell
+// 6/14/2025
+// CPSC 3750
+// program exam #1 
+// Attempted to complete grade A
+// clarifications:
+// This program generates a list of prime and non-prime numbers based on user input, displays them, and calculates their sums. 
+// It also includes a color animation for the lists. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- sets the language of the document to English and gets the .css stylesheet for the website. --> 
+<head>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Generator</title>
+    <link rel="stylesheet" href="css/prime.css">
+</head>
+
+<!-- The body of the document contains the main content of the page, including input fields, buttons, and sections for displaying prime and non-prime numbers. -->
+<body>
+    
+    <!-- Container for the entire content of the page. -->
+    <div class="container">
+        
+        <!-- Header section with the title of the application and an input field for the user to enter a number. -->
+        <h1>Prime Number Generator</h1>
+        <div class="input-section">
+            <input type="number" id="numberInput" placeholder="Enter a number" min="1" value="50">
+            <button id="startButton">START</button>
+        </div>
+        
+        <!-- contains the container for the prime number list and sum button and result elements-->
+        <div class="lists-container">
+            <div class="list-section" id="primeSection">
+                <h2>Prime Numbers</h2>
+                <div class="number-list" id="primeList"></div>
+                <button class="sum-button" id="primeSumButton" style="display: none;">SUM</button>
+                <div class="sum-result" id="primeSumResult"></div>
+            </div>
+            
+            <!-- contains the container for the non-prime number list and sum button and result elements-->
+            <div class="list-section" id="nonPrimeSection">
+                <h2>Non-Prime Numbers</h2>
+                <div class="number-list" id="nonPrimeList"></div>
+                <button class="sum-button" id="nonPrimeSumButton" style="display: none;">SUM</button>
+                <div class="sum-result" id="nonPrimeSumResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file that contains the logic for generating prime numbers and handling user interactions. -->
+    <script src="js/prime.js"></script>
+</body>
+</html>

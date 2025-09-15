@@ -1,0 +1,200 @@
+/* 
+// Sean Farrell
+// 6/14/2025
+// CPSC 3750
+// program exam #1 
+// Attempted to complete grade A
+// clarifications:
+// This program generates a list of prime and non-prime numbers based on user input, displays them, and calculates their sums. 
+// It also includes a color animation for the lists.
+*/
+
+/* This CSS file styles a prime number generator application with a dark theme.
+   It includes styles for the body, input fields, buttons, and lists of numbers,
+   with specific styles for prime and non-prime numbers using gradient backgrounds.
+*/
+
+/* Reset some default styles */
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+/* Dark theme styles for body */
+body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        min-height: 100vh;
+        padding: 20px;
+        color: #e0e0e0;
+}
+
+/* formatting for Container for the main content */
+.container {
+        max-width: 1200px;
+        margin: 0 auto;
+}
+
+/* Header styles */
+h1 {
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Input section styles */
+.input-section {
+        text-align: center;
+        margin-bottom: 40px;
+}
+
+/* Input field styles */
+#numberInput {
+        padding: 12px 20px;
+        font-size: 18px;
+        border: 1px solid #444;
+        border-radius: 25px;
+        margin-right: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        width: 200px;
+        background: #2d2d2d;
+        color: #e0e0e0;
+}
+
+
+/* Start Button styles */
+#startButton {
+        padding: 12px 25px;
+        font-size: 18px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        transition: background 0.3s;
+}
+
+
+/* Start Button hover effect */
+#startButton:hover {
+        background: #45a049;
+}
+
+/* Lists container styles */
+.lists-container {
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+}
+
+/* List section styles */
+.list-section {
+        flex: 1;
+        background: #2d2d2d;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        transition: background-color 0.5s ease;
+        border: 1px solid #444;
+}
+
+/* List section header styles*/
+.list-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        color: #ffffff;
+}
+
+/* List items styles */
+.number-list {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background: #1a1a1a;
+        border: 1px solid #444;
+}
+
+/* List item styles continued*/
+.number-item {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 12px;
+        background: #404040;
+        border-radius: 20px;
+        font-weight: bold;
+        color: #e0e0e0;
+        border: 1px solid #555;
+}
+
+/* Sum button styles */
+.sum-button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 15px;
+        transition: background 0.3s;
+}
+
+/* Sum button hover effect */
+.sum-button:hover {
+        background: #0056b3;
+}
+
+/* Sum result field styles */
+.sum-result {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff;
+        padding: 10px;
+        background: #3d3d00;
+        border-radius: 8px;
+        display: none;
+        border: 1px solid #666;
+}
+
+/* Color animation change styles for bodies of the lists */
+.prime-color-1 {
+        background: linear-gradient(135deg, #6b1e6b 0%, #420a42 100%) !important;
+}
+
+.prime-color-2 {
+        background: linear-gradient(135deg, #c56516 0%, #3d2d3d 100%) !important;
+}
+
+.non-prime-color-1 {
+        background: linear-gradient(135deg, #110f92 0%, #0d6e6a 100%) !important;
+}
+
+.non-prime-color-2 {
+        background: linear-gradient(135deg, #9b094d 0%, #ec2776 100%) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+        .lists-container {
+                flex-direction: column;
+        }
+        
+        h1 {
+                font-size: 2em;
+        }
+        
+        #numberInput {
+                width: 150px;
+                margin-bottom: 10px;
+        }
+}

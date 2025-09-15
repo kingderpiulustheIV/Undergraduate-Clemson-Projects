@@ -1,0 +1,116 @@
+<!-- 
+Sean Farrell
+5/31/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Common NavBar-->
+<nav>
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/layout.html">Basic Fixed Fluid Hybrid Layout</a></li>
+    <li><a href="/Family-Guy-Wiki/index.html">Demo HTML & CSS</a></li>
+    <li><a href="/prog04.html">Javascript Events</a></li>
+    <li><a href="/helloworld.php">PHP Helloworld</a></li>
+    <li><a href="/MovingButtons.html">Moving Buttons</a></li>
+    <li><a href="/sort.html">Javascript Sort</a></li>
+    <li><a href="/integrate.php">CREATE DB</a></li>
+
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Group Projects ▼</a>
+      <div class="dropdown-content">
+        <a href="/GroupCSS1.html">Group: CSS</a>
+        <a href="/GroupCSS2.html">Group: More CSS</a>
+        <a href="/GroupEvents.html">Group: Events</a>
+        <a href="/GroupAudio.html">Group: Audio</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">More Projects ▼</a>
+      <div class="dropdown-content">
+        <a href="/prime.html">Program Exam #1</a>
+        <a href="/exam2.html">Program Exam #2</a>
+        <a href="/collections.html">Project 2: Collection App</a>
+        <a href="/cardobject.html"> Card Object</a>
+        <a href="/jquery.html">jQuery</a>
+        <a href="/keypress.html">Keypress</a>
+        <a href="/livesearch.html">AJAX & PHP example</a>
+        <a href="/hangman.html">Hangman</a>
+        <a href="/audiochanger.html">Audio Changer</a>
+        <a href="/PHPIO.html">PHP File I/O App</a>
+        <a href="/AJAXHandlebars.html">AJAX & Handlebars</a>
+        <a href="/usabilityresults.html">Usability Test Results</a>
+      </div>
+    </li>
+    
+  </ul>
+      </nav>
+      <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+  * {
+    font-family: 'Poppins', sans-serif !important;
+  }
+  nav {
+    background-color: #000000!important;
+    color: white!important;
+    padding: 10px!important;
+  }
+  nav ul {
+
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+  }
+  nav ul li {
+    margin-right: 20px !important;
+    border-left: 4px solid #a33f05 !important;
+    /* border: 1px solid white; Add border to each entry */
+    padding: 5px; /* Add padding for better spacing */
+  }
+  nav ul li a {
+    color: white !important;
+    text-decoration: none !important;
+  }
+  nav ul li a:hover {
+    text-decoration: underline !important;
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* Dropdown styles */
+  .dropdown-content {
+    display: none;
+    position: absolute !important;
+    background-color: #1a1a1a !important;
+    min-width: 160px !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+    z-index: 1 !important;
+    top: 100% !important;
+    left: 0 !important;
+  }
+  
+  .dropdown-content a {
+    color: white !important;
+    padding: 12px 16px !important;
+    text-decoration: none !important;
+    display: block !important;
+    text-align: left !important;
+    border-left: 4px solid #a33f05 !important;
+    margin: 5px 0 !important;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #333 !important;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block !important;
+  }
+  
+  .dropbtn {
+    cursor: pointer !important;
+  }
+
+  li.dropdown {
+    position: relative !important;
+  }
+</style>

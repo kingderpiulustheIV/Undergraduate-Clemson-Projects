@@ -1,0 +1,132 @@
+<!-- 
+Sean Farrell
+7/12/2025
+CPSC 3750 Wooster
+ASSIGNMENT: PHP File I/O App
+DESCRIPTION: This PHP application allows users to input numbers and categorize them as prime, Armstrong, Fibonacci, or none. 
+It uses a form to submit the numbers and displays the results dynamically.
+THIS FILE: PHPIO.html contains the HTML structure and form for user input. It includes a navbar script and styles for a dark theme.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Categorizer</title>
+    <script src="navbar.js"></script>
+    <style>
+        nav#navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 70px; /* Add space for the navbar */
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #bb86fc;
+            border-bottom: 2px solid #3700b3;
+            padding-bottom: 10px;
+        }
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            border-radius: 4px;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .check-btn {
+            background-color: #03dac6;
+            color: #000;
+        }
+        .reset-btn {
+            background-color: #cf6679;
+            color: #000;
+        }
+        .display-btn {
+            background-color: #bb86fc;
+            color: #000;
+        }
+        .results {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 5px;
+            min-height: 100px;
+            border: 1px solid #333;
+        }
+        .number-item {
+            display: inline-block;
+            background-color: #2d2d2d;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #444;
+        }
+    </style>
+    <nav id="navbar"></nav>
+</head>
+<body>
+    <h1>Number Categorizer</h1>
+    
+    <div class="form-container">
+        <form action="logic.php" method="post">
+            <label for="numbers">Enter numbers separated by spaces, commas, or new lines:</label>
+            <textarea id="numbers" name="numbers"></textarea>
+    
+            <div class="button-group">
+                <button type="submit" name="action" value="check" class="check-btn">CHECK THESE NUMBERS</button>
+                <button type="submit" name="action" value="prime" class="display-btn">PRIME</button>
+                <button type="submit" name="action" value="armstrong" class="display-btn">ARMSTRONG</button>
+                <button type="submit" name="action" value="fibonacci" class="display-btn">FIBONACCI</button>
+                <button type="submit" name="action" value="none" class="display-btn">NONE</button>
+                <button type="submit" name="action" value="reset" class="reset-btn">RESET</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="results" id="results">
+        <?php if(isset($result_message)) echo $result_message; ?>
+    </div>
+
+</body>
+</html>

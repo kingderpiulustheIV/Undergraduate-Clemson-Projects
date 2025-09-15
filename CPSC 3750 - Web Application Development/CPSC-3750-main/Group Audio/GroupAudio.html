@@ -1,0 +1,271 @@
+<!-- Sean Farrell
+6/28/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Group: audio 
+DESCRIPTION: This assignment showcases the use and functionality of an audio player using DOM methods-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio DOM Demo</title>
+    <style>
+        /* Basic styling for a dark theme */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; 
+            background-color: #fff; 
+        }
+  
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 50px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #bb86fc;
+        }
+        .player-container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .status-container {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .status-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            border-left: 4px solid #03dac6;
+        }
+        .status-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+            color: #bb86fc;
+        }
+        .volume-control {
+            margin: 15px 0;
+        }
+        .progress-container {
+            width: 100%;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+            cursor: pointer;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #03dac6;
+            border-radius: 10px;
+            width: 0%;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #03dac6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        audio {
+            filter: invert(1);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML DOM Audio Object Demo</h1>
+    
+    <div class="player-container">
+        <h2>Audio Player</h2>
+        
+        <!-- Audio element with controls -->
+        <audio id="myAudio" controls>
+            <source src="SneakySnitch.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div class="volume-control">
+            <label for="volumeSlider" class="status-label">Volume Control:</label>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            <span id="volumeValue">100%</span>
+        </div>
+        
+        <div class="custom-controls">
+            <button id="playBtn">Play</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="restartBtn">Restart</button>
+        </div>
+        
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+   
+    <!-- Status display for audio properties and events -->
+    <div class="status-container">
+        <h2>Audio Properties & Events Demo</h2>
+        
+        <div class="status-item">
+            <span class="status-label">PLAYED:</span>
+            <span id="playedStatus">Not played yet</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">PAUSED:</span>
+            <span id="pausedStatus">Audio is paused</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">VOLUME:</span>
+            <span id="volumeStatus">100%</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">DURATION:</span>
+            <span id="durationStatus">Loading...</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">CURRENT TIME:</span>
+            <span id="currentTimeStatus">0:00</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Play Count:</span>
+            <span id="playCount">0</span>
+        </div>
+    </div>
+
+    <script>
+        // Get references to DOM elements
+        const audio = document.getElementById('myAudio');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeValue = document.getElementById('volumeValue');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        
+        // Status elements
+        const playedStatus = document.getElementById('playedStatus');
+        const pausedStatus = document.getElementById('pausedStatus');
+        const volumeStatus = document.getElementById('volumeStatus');
+        const durationStatus = document.getElementById('durationStatus');
+        const currentTimeStatus = document.getElementById('currentTimeStatus');
+        const playCount = document.getElementById('playCount');
+        
+        let playCounter = 0;
+        
+        // Format time in minutes and seconds
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+        
+        // Event listeners for audio element
+        audio.addEventListener('loadedmetadata', () => {
+            durationStatus.textContent = `${formatTime(audio.duration)} (${audio.duration.toFixed(2)} seconds)`;
+        });
+        
+        audio.addEventListener('play', () => {
+            playedStatus.textContent = 'Audio is playing';
+            pausedStatus.textContent = 'Audio is not paused';
+        });
+        
+        audio.addEventListener('pause', () => {
+            pausedStatus.textContent = 'Audio is paused';
+            
+            // Only update played status if we've actually started playing
+            if (audio.currentTime > 0) {
+                playedStatus.textContent = 'Audio has been played';
+            }
+        });
+        
+        audio.addEventListener('ended', () => {
+            playedStatus.textContent = 'Audio played completely';
+            pausedStatus.textContent = 'Audio ended';
+            playCounter++;
+            playCount.textContent = playCounter;
+        });
+        
+        // Update current time display
+        audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            currentTimeStatus.textContent = `${formatTime(currentTime)} (${currentTime.toFixed(2)} seconds)`;
+            
+            // Update progress bar
+            const percentage = (currentTime / audio.duration) * 100;
+            progressBar.style.width = percentage + '%';
+        });
+        
+        // Button event listeners
+        playBtn.addEventListener('click', () => {
+            audio.play();
+            if (audio.currentTime === 0) {
+                playCounter++;
+                playCount.textContent = playCounter;
+            }
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+        });
+        
+        restartBtn.addEventListener('click', () => {
+            audio.currentTime = 0;
+            audio.play();
+            playCounter++;
+            playCount.textContent = playCounter;
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', () => {
+            const volume = volumeSlider.value;
+            audio.volume = volume;
+            const percentage = Math.round(volume * 100);
+            volumeValue.textContent = `${percentage}%`;
+            volumeStatus.textContent = `${percentage}%`;
+        });
+        
+        // Click on progress bar to seek
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / progressContainer.offsetWidth;
+            audio.currentTime = pos * audio.duration;
+        });
+        
+        // Initial status updates
+        volumeStatus.textContent = `${Math.round(audio.volume * 100)}%`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!--
+ Sean Farrell
+ 06/05/2025
+ ASSIGNMENT: Moving Buttons
+ CPSC 3750 Wooster
+ FILE: MovingButtons.html
+ Description: Simple HTML page were a button can be created and moved around the page.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Move</title>
+  <link rel="stylesheet" href="css/style.css">
+  <div id="navbar"></div>
+  <script src="navbar.js"></script> 
+</head>
+<body>
+  <nav>
+    <h1>Interactive Button Page</h1>
+  </nav>
+  <div class="controls">
+    <select id="colorDropdown">
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="DeepSkyBlue">Blue</option>
+      <option value="yellow">Yellow</option>
+      <option value="white">White</option>
+    </select>
+    <button id="makeButton">Make Button</button>
+    <button id="movePauseButton">MOVE</button>
+    <span id="totalLabel">Total: 0</span>
+  </div>
+  <div id="viewingArea" style="clear: both; margin-top: 20px; position: relative; min-height: 300px; border: 1px solid #ccc;"></div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

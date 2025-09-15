@@ -1,0 +1,376 @@
+<!-- 
+Sean Farrell
+7/18/25
+CPSC 3750 Wooster
+ASSIGNMENT: Exam 2
+DESCRIPTION: A web application that allows users to view words based on their vowel counts, 
+drag and drop words into a designated area, and see a count of the dropped words. 
+The application fetches data from a PHP backend that processes a text file containing words.
+FILE INFO: This is the main HTML file exam2.html that includes the structure, styles, and JavaScript for the application.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Vowel Counter</title>
+    
+    <!-- dark style theme for the page using in-text .css -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #bb86fc;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .vowel-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3700b3;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            min-width: 60px;
+        }
+
+        .vowel-button:hover {
+            background-color: #6200ee;
+        }
+
+        .vowel-button.active {
+            background-color: #03dac6;
+            color: #000;
+        }
+
+        .content-area {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .words-section {
+            flex: 1;
+        }
+
+        .drop-section {
+            flex: 1;
+        }
+
+        .words-list {
+            border: 2px solid #333;
+            border-radius: 5px;
+            height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #2d2d2d;
+        }
+
+        .word-item {
+            background-color: #333333;
+            margin: 5px 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: grab;
+            border: 1px solid #444;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .word-item:hover {
+            background-color: #444444;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        .word-item:active {
+            cursor: grabbing;
+        }
+
+        .drop-zone {
+            border: 3px dashed #444;
+            border-radius: 10px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2d2d2d;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #03dac6;
+            background-color: #333333;
+        }
+
+        .drop-zone-text {
+            color: #aaa;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .dropped-words {
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 15px;
+            min-height: 100px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .dropped-word {
+            display: inline-block;
+            background-color: #03dac6;
+            color: #000;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .counter {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #bb86fc;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #333333;
+            border-radius: 5px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #bb86fc;
+        }
+
+        .loading {
+            text-align: center;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .error {
+            color: #cf6679;
+            text-align: center;
+            padding: 15px;
+            background-color: #330000;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+    
+    <!-- Includes the navigation bar -->
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>Word Vowel Counter</h1>
+
+        <!-- Button container for vowel count buttons -->
+        <div class="button-container" id="buttonContainer">
+            <div class="loading">Loading vowel counts...</div>
+        </div>
+        
+        <!-- Main content area with words list and drop zone -->
+        <div class="content-area">
+            <div class="words-section">
+                <div class="section-title">Words (click a button to see words)</div>
+                <div class="words-list" id="wordsList">
+                    <div class="loading">Select a vowel count to see words</div>
+                </div>
+            </div>
+            
+            <!-- Drop zone for dragging and dropping words -->
+            <div class="drop-section">
+                <div class="section-title">Drop Zone</div>
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-text">Drag words here</div>
+                </div>
+                <div class="section-title">Dropped Words</div>
+                <div class="dropped-words" id="droppedWords"></div>
+                <div class="counter" id="counter">Dropped Words: 0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for handling button clicks, drag-and-drop, and fetching data -->
+    <script>
+        // Main application class
+        class WordVowelApp {
+            constructor() {
+                this.wordsByVowels = {};
+                this.droppedWordsCount = 0;
+                this.currentVowelCount = null;
+                
+                this.init();
+            }
+            // Initialize the application
+            async init() {
+                await this.loadData();
+                this.setupEventListeners();
+            }
+
+            // Load words data from the server
+            async loadData() {
+                try {
+                    
+                    // Load words organized by vowel count
+                    const wordsResponse = await fetch('exam2.php?action=getWords');
+                    this.wordsByVowels = await wordsResponse.json();
+                    
+                    if (this.wordsByVowels.error) {
+                        throw new Error(this.wordsByVowels.error);
+                    }
+                    
+                    this.createVowelButtons();
+                } catch (error) {
+                    this.showError('Failed to load words: ' + error.message);
+                }
+            }
+            
+            // Create buttons for each vowel count
+
+            createVowelButtons() {
+                const buttonContainer = document.getElementById('buttonContainer');
+                const vowelCounts = Object.keys(this.wordsByVowels).sort((a, b) => a - b);
+                
+                if (vowelCounts.length === 0) {
+                    buttonContainer.innerHTML = '<div class="error">No words found</div>';
+                    return;
+                }
+                
+                buttonContainer.innerHTML = '';
+                
+                vowelCounts.forEach(count => {
+                    const button = document.createElement('button');
+                    button.className = 'vowel-button';
+                    button.textContent = count;
+                    button.addEventListener('click', () => this.showWordsForVowelCount(count));
+                    buttonContainer.appendChild(button);
+                });
+            }
+            
+            // Display words for the selected vowel count
+            showWordsForVowelCount(vowelCount) {
+                // Update button states
+                document.querySelectorAll('.vowel-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                event.target.classList.add('active');
+                
+                this.currentVowelCount = vowelCount;
+                const words = this.wordsByVowels[vowelCount] || [];
+                const wordsList = document.getElementById('wordsList');
+                
+                if (words.length === 0) {
+                    wordsList.innerHTML = '<div class="loading">No words found for this vowel count</div>';
+                    return;
+                }
+                
+                wordsList.innerHTML = '';
+                
+                words.forEach(word => {
+                    const wordItem = document.createElement('div');
+                    wordItem.className = 'word-item';
+                    wordItem.textContent = word;
+                    wordItem.draggable = true;
+                    
+                    wordItem.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', word);
+                        e.dataTransfer.effectAllowed = 'copy';
+                    });
+                    
+                    wordsList.appendChild(wordItem);
+                });
+            }
+            
+            // Setup drag-and-drop event listeners
+            setupEventListeners() {
+                const dropZone = document.getElementById('dropZone');
+                const droppedWords = document.getElementById('droppedWords');
+                
+                // Drop zone events
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'copy';
+                    dropZone.classList.add('drag-over');
+                });
+                
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.classList.remove('drag-over');
+                });
+                
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('drag-over');
+                    
+                    const word = e.dataTransfer.getData('text/plain');
+                    this.addDroppedWord(word);
+                });
+            }
+            
+            // Add a word to the dropped words area and update the counter
+            addDroppedWord(word) {
+                if (!word) return;
+                
+                const droppedWords = document.getElementById('droppedWords');
+                const counter = document.getElementById('counter');
+                
+                // Create dropped word element
+                const droppedWord = document.createElement('span');
+                droppedWord.className = 'dropped-word';
+                droppedWord.textContent = word;
+                
+                droppedWords.appendChild(droppedWord);
+                
+                // Update counter
+                this.droppedWordsCount++;
+                counter.textContent = `Dropped Words: ${this.droppedWordsCount}`;
+            }
+            
+            // Display error messages
+            showError(message) {
+                const buttonContainer = document.getElementById('buttonContainer');
+                buttonContainer.innerHTML = `<div class="error">${message}</div>`;
+            }
+        }
+        
+        // Initialize the app when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new WordVowelApp();
+        });
+    </script>
+</body>
+</html>

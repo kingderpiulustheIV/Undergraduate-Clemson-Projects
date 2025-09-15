@@ -1,0 +1,102 @@
+<!--
+Sean Farrell
+7/17/2025
+CPSC-3750 Wooster
+ASSIGNMENT: Project 2 Collect App Phase 1
+DESCRIPTION: A web app to search and view Pokemon data from PokeAPI
+FILE: collections.html contains the structure and layout for the Pokemon search and detail pages.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Collection App</title>
+    <link rel="stylesheet" href="collectionstyles.css">
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+</head>
+        <!-- Div for project navbar -->
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>Pokemon Collection</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('search')">Search</a></li>
+            <li><a href="#" onclick="showPage('stats')">Statistics</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        
+        <!-- Search Page -->
+        <div id="search-page" class="page active">
+            <h2>Search Pokemon</h2>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Enter Pokemon name (leave empty for all)">
+                <button onclick="searchPokemon()">Search</button>
+            </div>
+            <div id="loading" class="loading" style="display: none;">Loading...</div>
+            <div id="pokemon-list" class="pokemon-list"></div>
+        </div>
+
+        <!-- Detail Page -->
+        <div id="detail-page" class="page">
+            <button onclick="showPage('search')" class="back-btn">← Back to Search</button>
+            <div id="pokemon-detail" class="pokemon-detail"></div>
+        </div>
+
+        <!-- Statistics Page -->
+        <div id="stats-page" class="page">
+            <h2>Collection Statistics</h2>
+            <div id="stats-content" class="stats-content">
+                <div class="stat-card">
+                    <h3>Total Pokemon</h3>
+                    <p id="total-pokemon">Loading...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Types</h3>
+                    <p id="total-types">Loading...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Regions</h3>
+                    <p id="total-regions">Loading...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Abilities</h3>
+                    <p id="total-abilities">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about-page" class="page">
+            <h2>About Pokemon Collection</h2>
+            <div class="about-content">
+                <h3>Data Source</h3>
+                <p>This application uses the <strong>PokeAPI</strong> (Pokemon API) to provide comprehensive information about Pokemon.</p>
+                
+                <h3>Features</h3>
+                <ul>
+                    <li>Search Pokemon by name (partial search supported)</li>
+                    <li>View detailed information about each Pokemon</li>
+                    <li>Browse all Pokemon with pagination</li>
+                    <li>Live statistics about the Pokemon collection</li>
+                </ul>
+
+                <h3>API Information</h3>
+                <p><strong>Source:</strong> <a href="https://pokeapi.co/" target="_blank">PokeAPI - https://pokeapi.co/</a></p>
+                <p><strong>Documentation:</strong> <a href="https://pokeapi.co/docs/v2" target="_blank">API Documentation</a></p>
+                <p>PokeAPI is a free, open-source API that provides access to Pokemon data including stats, abilities, types, and more.</p>
+
+                <h3>Developer</h3>
+                <p>Created for CPSC-3750 Assignment: Project 2: Collect App Phase 1 by Sean Farrell</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="collections.js"></script>
+</body>
+</html>

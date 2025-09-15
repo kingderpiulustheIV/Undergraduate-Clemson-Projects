@@ -1,0 +1,250 @@
+<!-- 
+Sean Farrell
+5/31/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Group: More CSS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Elements Demonstration</title>
+    <link rel="stylesheet" href="GroupCSS2.css">
+    <!-- Font for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<!-- For Sitewide navbar -->
+<head>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+ </head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="demo-section">
+        <h1>CSS Elements Demonstration</h1>
+        <h2 class="element-label">Element: Header</h2>
+        <p>This is a demonstration of various CSS elements as required for the group assignment.</p>
+    </header>
+
+
+    <!-- NAVIGATION BAR -->
+    <nav class="demo-section">
+        <h2 class="element-label">Element: Navigation Bar</h2>
+        <ul class="nav-menu">
+            <li><a href="#box-model">Box Model</a></li>
+            <li><a href="#icons">Icons</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#layout">Layout</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#float">Float</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content demo-section">
+        <h2 class="element-label">Element: Content Section</h2>
+
+        <!-- BOX MODEL SECTION -->
+        <section id="box-model" class="demo-section">
+            <h2 class="element-label">Element: Box Model</h2>
+            <div class="box-model-demo">
+                <p>This box demonstrates the CSS Box Model with margin, border, padding, and content.</p>
+            </div>
+            <div class="box-model-explanation">
+                <p>The CSS Box Model consists of:</p>
+                <ul>
+                    <li>Content - The actual content of the box</li>
+                    <li>Padding - Space around the content</li>
+                    <li>Border - A border that goes around the padding</li>
+                    <li>Margin - Space outside the border</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ICONS SECTION -->
+        <section id="icons" class="demo-section">
+            <h2 class="element-label">Element: Icons</h2>
+            <div class="icons-container">
+                <div class="icon-item">
+                    <i class="fas fa-home"></i>
+                    <p>Home</p>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email</p>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-user"></i>
+                    <p>User</p>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-cog"></i>
+                    <p>Settings</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LISTS SECTION -->
+        <section id="lists" class="demo-section">
+            <h2 class="element-label">Element: Lists</h2>
+            
+            <div class="list-container">
+                <div class="unordered-list">
+                    <h3 class="element-label">Element: Unordered List</h3>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                        <li>Item 4</li>
+                    </ul>
+                </div>
+                
+                <div class="ordered-list">
+                    <h3 class="element-label">Element: Ordered List</h3>
+                    <ol>
+                        <li>First step</li>
+                        <li>Second step</li>
+                        <li>Third step</li>
+                        <li>Fourth step</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLES SECTION -->
+        <section id="tables" class="demo-section">
+            <h2 class="element-label">Element: Tables</h2>
+            
+            <div class="standard-table">
+                <h3 class="element-label">Element: Standard Table</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>25</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>32</td>
+                            <td>Canada</td>
+                        </tr>
+                        <tr>
+                            <td>Robert Johnson</td>
+                            <td>45</td>
+                            <td>UK</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="responsive-table">
+                <h3 class="element-label">Element: Responsive Table</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Laptop</td>
+                                <td>$999</td>
+                                <td>High-performance laptop with SSD</td>
+                                <td>Electronics</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Smartphone</td>
+                                <td>$699</td>
+                                <td>Latest model with dual camera</td>
+                                <td>Electronics</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>Headphones</td>
+                                <td>$149</td>
+                                <td>Noise-cancelling wireless headphones</td>
+                                <td>Audio</td>
+                                <td>30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE GALLERY -->
+        <section id="gallery" class="demo-section">
+            <h2 class="element-label">Element: Image Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/10/300/200" alt="Gallery Image 1">
+                    <div class="caption">Image 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/11/300/200" alt="Gallery Image 2">
+                    <div class="caption">Image 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/12/300/200" alt="Gallery Image 3">
+                    <div class="caption">Image 3</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/13/300/200" alt="Gallery Image 4">
+                    <div class="caption">Image 4</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLOAT PROPERTY -->
+        <section id="float" class="demo-section">
+            <h2 class="element-label">Element: Float</h2>
+            <div class="float-container">
+                <div class="float-example">
+                    <img src="https://picsum.photos/id/16/200/200" alt="Float example" class="float-left">
+                    <p>This text demonstrates the float property. The image is floated to the left, and the text wraps around it. The float property is commonly used for text wrapping around images, creating multi-column layouts, and other design patterns. This is an example of using the float property in a practical scenario.</p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="float-example">
+                    <img src="https://picsum.photos/id/17/200/200" alt="Float example" class="float-right">
+                    <p>Here's another example with the image floated to the right. The text now wraps around the image on the left side. When using float, it's important to properly clear the float after using it to prevent layout issues. The clearfix technique is commonly used to solve this problem.</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="demo-section">
+        <h2 class="element-label">Element: Footer</h2>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>This page was created as a demonstration for a CSS assignment By Sean Farrell.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: spfarre@clemson.edu</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Sean Farrell. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

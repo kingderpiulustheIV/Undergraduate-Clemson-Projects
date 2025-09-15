@@ -1,0 +1,126 @@
+/* 
+// Sean Farrell
+// 6/14/2025
+// CPSC 3750
+// ASSIGNMENT: Card object 
+// DESCRIPTION: This .css formats and stylizes a Card object and provides functionality to create, display, and manage contact cards website. */
+
+/* Dark theme styling */
+body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+}
+
+h1 {
+        color: #bb86fc;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+}
+
+form {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+label {
+        display: inline-block;
+        width: 100px;
+        margin-bottom: 10px;
+        color: #bb86fc;
+        }
+
+input {
+        background-color: #2d2d2d;
+        border: 1px solid #444;
+        padding: 8px;
+        border-radius: 4px;
+        color: #e0e0e0;
+        margin-bottom: 10px;
+        width: 70%;
+}
+
+input:focus {
+        outline: none;
+        border-color: #bb86fc;
+        box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.3);
+}
+
+button {
+        background-color: #bb86fc;
+        color: #121212;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+}
+
+button:hover {
+        background-color: #a370dd;
+}
+
+hr {
+        border: none;
+        border-top: 1px solid #444;
+        margin: 20px 0;
+}
+
+#cardDisplay {
+        margin-top: 20px;
+}
+
+table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+        border: 1px solid #444;
+        padding: 12px;
+        text-align: left;
+}
+
+th {
+        background-color: #2d2d2d;
+        color: #bb86fc;
+}
+
+tr:nth-child(even) {
+        background-color: #252525;
+}
+
+tr:hover {
+background-     : #333;
+}
+
+/* had to have some navbar settings in here to fix the navbar formatting*/
+#navbar {
+        max-width: 100%; 
+        width: 100%;
+        margin: 0; 
+        padding: 0;
+        position: fixed; 
+        top: 0;
+        left: 0;
+        z-index: 1000; 
+        background-color: #1a1a1a; 
+}
+
+/* Add some padding to body to account for the navbar */
+body {
+        padding-top: 80px;
+}

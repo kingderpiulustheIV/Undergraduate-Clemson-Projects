@@ -1,0 +1,73 @@
+
+<!-- Sean Farrell
+6/28/2025
+CPSC 3750 Wooster
+ASSIGNMENT: jQuery  
+DESCRIPTION: This assignment showcases using Jquery library buy using, cursor interaction, fade methods datepicker and accordion methods
+This file is the jquery.html set up the layout of this webpage-->
+<!DOCTYPE html>
+<html>
+<head>
+  <div id="navbar"></div>
+  <script src="navbar.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="css/jquery.css">
+</head>
+<body>
+  <p>This is a paragraph.</p>
+
+  <div class="button-container">
+    <button id="fade-div1">Fade Div 1</button>
+    <button id="fade-div2">Fade Div 2</button>
+    <button id="fade-div3">Fade Div 3</button>
+  </div>
+
+  <div id="div1" class="hover-div div-container" style="border: 1px solid black;">
+    <p>A paragraph in a div.</p>
+    <p>Another paragraph in a div.</p>
+  </div>
+
+  <div id="div2" class="hover-div div-container" style="border: 1px solid black;">
+    <p>A paragraph in another div.</p>
+    <p>Another paragraph in another div.</p>
+  </div>
+
+  <div id="div3" class="hover-div div-container" style="border: 1px solid black;">
+    <p>A paragraph in another div.</p>
+    <p>Another paragraph in another div.</p>
+  </div>
+
+  <div id="datepicker-container">
+    <h3>jQuery Datepicker</h3>
+    <p>Select a date: <input type="text" id="datepicker"></p>
+  </div>
+
+  <div id="accordion-container">
+    <h3>jQuery Accordion</h3>
+    <div id="accordion">
+      <h3>Section 1</h3>
+      <div>
+        <p>This is the content for section 1 of the accordion.</p>
+      </div>
+      <h3>Section 2</h3>
+      <div>
+        <p>This is the content for section 2 of the accordion.</p>
+      </div>
+      <h3>Section 3</h3>
+      <div>
+        <p>This is the content for section 3 of the accordion.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="progressbar-container">
+    <h3>jQuery Progress Bar</h3>
+    <div id="progressbar"></div>
+    <p><span id="progress-label">0%</span> <span id="progress-complete"></span></p>
+    <p>This progress bar updates every second for 20 seconds.</p>
+  </div>
+
+</body>
+</html>

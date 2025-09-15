@@ -1,0 +1,45 @@
+<!-- 
+Sean Farrell
+7/5/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Group: Hangman
+DESCRIPTION: A website using html, css and javascript and php of an online game of hangman.
+this is the main html file that contains the game.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Hangman Game</title>
+   <link rel="stylesheet" href="css/hangman.css">
+   <script src="js/navbar.js"></script>
+   
+</head>
+<body>
+    <!-- div for the navbar -->
+    <div id="navbar-container">
+        <nav id="navbar"></nav>
+    </div>
+   <div id="game">
+       <div id="team">
+           <h3>Developed by: Sean Farrell</h3>
+       </div>
+       <!-- Has the title of the game and displays the gallows, word to guess, letters grid, and game controls and cheat mode. -->
+       <h1>Hangman Game</h1>
+       <div id="gallows-container">
+           <canvas id="gallows" width="200" height="250"></canvas>
+       </div>
+            <div id="wordToGuess"></div>
+            <div id="letters-grid">
+       </div>
+       <div id="game-controls">
+           <label for="cheat-mode">
+               <input type="checkbox" id="cheat-mode"> Cheat Mode
+           </label>
+           <button onclick="startGame()">Start New Game</button>
+       </div>
+   </div>
+   <script src="js/hangman.js"></script>
+</body>
+</html>

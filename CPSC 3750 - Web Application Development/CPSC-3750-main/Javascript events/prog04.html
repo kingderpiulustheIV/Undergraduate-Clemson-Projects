@@ -1,0 +1,163 @@
+<!-- 
+Sean Farrell
+5/31/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Javascript Events-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Change App</title>
+  <style> 
+        /* Default styles */
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #979797;
+        }
+
+        nav ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #000000;
+        margin: 0;
+        }
+
+        nav ul li {
+        display: inline;
+        margin: 0 10px;
+        }
+
+        nav ul li a {
+        color: white;
+        text-decoration: none;
+        }
+
+        .color-button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        }
+
+        .color-button:hover {
+        background-color: white;
+        color: black;
+        }
+
+        section {
+        margin: 20px;
+        }
+  </style>
+</head>
+<head>
+        <div id="navbar"></div>
+        <script src="navbar.js"></script>
+        <title>Color Change App</title> 
+</head>
+<body>
+  <nav>
+    <ul>
+        <li>Color Changer App navigation: </li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#counters">Counters</a></li>
+    </ul>
+  </nav>
+
+  <section id="buttons">
+<p> A simple website showcasing Javascript events by clicking the button changes the background color and displays the user how many times the user has clicked or hovered over the button </p>   
+    <button id="redButton" class="color-button">RED</button>
+    <button id="greenButton" class="color-button">GREEN</button>
+    <button id="blueButton" class="color-button">BLUE</button>
+  </section>
+
+  
+
+  <section id="counters">
+    <p id="redCount">RED count: 0</p>
+    <p id="greenCount">GREEN count: 0</p>
+    <p id="blueCount">BLUE count: 0</p>
+    <p id="hoverCount">Hover count: 0</p>
+  </section>
+
+  <script>
+        // JavaScript code to handle button clicks and hover events
+
+        // Initialize counters
+        let redCount = 0;
+        let greenCount = 0;
+        let blueCount = 0;
+        let hoverCount = 0;
+
+        // Get references to buttons and counters
+        const redButton = document.getElementById('redButton');
+        const greenButton = document.getElementById('greenButton');
+        const blueButton = document.getElementById('blueButton');
+        const redCountDisplay = document.getElementById('redCount');
+        const greenCountDisplay = document.getElementById('greenCount');
+        const blueCountDisplay = document.getElementById('blueCount');
+        const hoverCountDisplay = document.getElementById('hoverCount');
+
+
+        // Function to update the background color and counters
+        function updateBackgroundColor(color) {
+                document.body.style.backgroundColor = color;
+        }
+
+        // Function to update the respective color counter
+        function updateCounter(color) {
+        if (color === 'red') {
+                redCount++;
+                redCountDisplay.textContent = `RED count: ${redCount}`;
+        } else if (color === 'green') {
+                greenCount++;
+                greenCountDisplay.textContent = `GREEN count: ${greenCount}`;
+        } else if (color === 'blue') {
+                blueCount++;
+                blueCountDisplay.textContent = `BLUE count: ${blueCount}`;
+        }
+        }
+
+        // Function to update the hover counter
+        function updateHoverCounter() {
+                hoverCount++;
+                hoverCountDisplay.textContent = `Hover count: ${hoverCount}`;
+        }
+
+        // Event listeners for button clicks and hover events
+        redButton.addEventListener('click', () => {
+                updateBackgroundColor('red');
+                updateCounter('red');
+        });
+
+        greenButton.addEventListener('click', () => {
+                updateBackgroundColor('green');
+                updateCounter('green');
+        });
+
+        blueButton.addEventListener('click', () => {
+                updateBackgroundColor('blue');
+                updateCounter('blue');
+        });
+
+        // Add hover event listeners to buttons
+        [redButton, greenButton, blueButton].forEach(button => {
+                button.addEventListener('mouseover', () => {
+                        button.style.backgroundColor = 'white';
+                        button.style.color = 'black';
+                        updateHoverCounter();
+                });
+
+                button.addEventListener('mouseout', () => {
+                        button.style.backgroundColor = 'black';
+                        button.style.color = 'white';
+                        });
+        });
+  </script>
+</body>
+</html>

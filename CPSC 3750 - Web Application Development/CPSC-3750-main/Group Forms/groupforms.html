@@ -1,0 +1,199 @@
+<!-- 
+Sean Farrell
+7/12/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Group Forms
+DESCRIPTION: This application shows demonstrates the processing of various form inputs including text, textarea, hidden fields, 
+password, checkboxes, radio buttons, selection lists, file uploads, and URL inputs. 0t displays the submitted data in a structured format.
+
+This is gorupfourms.html file containing the layout and styling for the application for this assignment. 
+--><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Elements Demo</title>
+    <!-- Internal CSS file for styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 4px solid #c43b19;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"], input[type="url"],
+        textarea, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #c43b19;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #c43b19;
+        }
+        .checkbox-group, .radio-group {
+            margin-top: 8px;
+        }
+        .checkbox-item, .radio-item {
+            margin-bottom: 5px;
+        }
+        .element-title {
+            background-color: #c43b19;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Elements Demonstration</h1>
+    
+    <form action="process_form.php" method="post" enctype="multipart/form-data">
+        
+        <!-- Text Input -->
+        <div class="form-group">
+            <div class="element-title">Text Input</div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+        </div>
+        
+        <!-- Textarea -->
+        <div class="form-group">
+            <div class="element-title">Textarea</div>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Enter your comments here"></textarea>
+        </div>
+        
+        <!-- Hidden Data -->
+        <div class="form-group">
+            <div class="element-title">Hidden Input</div>
+            <p>This form contains a hidden field with the value "123456"</p>
+            <input type="hidden" name="hidden_id" value="123456">
+        </div>
+        
+        <!-- Password -->
+        <div class="form-group">
+            <div class="element-title">Password Input</div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        
+        <!-- Array of Checkboxes -->
+        <div class="form-group">
+            <div class="element-title">Checkbox Array</div>
+            <label>Which programming languages do you know?</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lang_html" name="languages[]" value="HTML">
+                    <label for="lang_html">HTML</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lang_css" name="languages[]" value="CSS">
+                    <label for="lang_css">CSS</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lang_js" name="languages[]" value="JavaScript">
+                    <label for="lang_js">JavaScript</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lang_php" name="languages[]" value="PHP">
+                    <label for="lang_php">PHP</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Radio Buttons -->
+        <div class="form-group">
+            <div class="element-title">Radio Buttons</div>
+            <label>What is your favorite pet?</label>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="pet_dog" name="favorite_pet" value="Dog">
+                    <label for="pet_dog">Dog</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="pet_cat" name="favorite_pet" value="Cat">
+                    <label for="pet_cat">Cat</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="pet_bird" name="favorite_pet" value="Bird">
+                    <label for="pet_bird">Bird</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="pet_other" name="favorite_pet" value="Other">
+                    <label for="pet_other">Other</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Selection List -->
+        <div class="form-group">
+            <div class="element-title">Selection List</div>
+            <label for="country">Select your country:</label>
+            <select id="country" name="country">
+                <option value="">-- Select a country --</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Japan">Japan</option>
+            </select>
+        </div>
+        
+        <!-- File Upload -->
+        <div class="form-group">
+            <div class="element-title">File Upload</div>
+            <label for="profile_pic">Upload Profile Picture:</label>
+            <input type="file" id="profile_pic" name="profile_pic">
+        </div>
+        
+        <!-- URL Input -->
+        <div class="form-group">
+            <div class="element-title">URL Input</div>
+            <label for="website">Your Website:</label>
+            <input type="url" id="website" name="website" placeholder="https://example.com">
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="form-group">
+            <input type="submit" value="Submit Form">
+        </div>
+    </form>
+</body>
+</html>

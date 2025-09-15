@@ -1,0 +1,168 @@
+/* 
+Sean Farrell
+CPSC 3750 Wooster
+Basic Fixed Fluid Hybrid Layout
+layout.css
+
+This CSS file defines the styles for a basic fixed-fluid hybrid layout with a responsive design. 
+It includes styles for the body, header, footer, wrapper, left sidebar, right sidebar, and content area. 
+Additionally, it incorporates a media query for responsive adjustments on smaller screens.
+
+General Styles:
+- The body has no margin or padding and a minimum width of 770px.
+- Header and footer are styled with specific background colors, text alignment, and padding.
+- The wrapper contains the main layout structure with padding and overflow handling.
+*/
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 770px;
+}
+
+header {
+  float: left;
+  width: 100%;
+  background-color: #F56600;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer {
+  position: relative;
+  float: left;
+  width: 100%;
+  background-color: #522D80; 
+  color: white;
+  text-align: center;
+  font-style: italic;
+  padding: 15px 0;
+}
+
+#wrapper {
+  float: left;
+  padding-left: 200px;
+  padding-right: 125px;
+  overflow: hidden;
+}
+
+/* Left Sidebar (#left_side):
+- Positioned to the left with a fixed width of 200px.
+- Styled with a background color, padding, and white text.
+- Includes a list with custom link styles for normal, visited, hover, and active states. */
+#left_side {
+  position: relative;
+  float: left;
+  width: 200px;
+  width: auto;
+  background-color: #F56600; 
+  right: 200px;
+  margin-left: -100%;
+  margin-bottom: -2000px;
+  padding: 15px;
+  box-sizing: border-box;
+  padding-bottom: 2000px;
+  color: white;
+}
+
+/*Right Sidebar (#right_side):
+- Positioned to the right with a fixed width of 125px.
+- Styled with a background color and extended padding for layout purposes. */
+
+#right_side {
+  position: relative;
+  float: left;
+  width: 125px;
+  background-color: #522D80;
+  margin-right: -125px;
+  margin-bottom: -2000px;
+  padding-bottom: 2000px;
+  }
+
+/* Content Area (#content_area):
+- Positioned in the center with auto width and padding for spacing.
+- Includes a white background and additional margin for separation. */
+
+#content_area {
+  position: relative;
+  float: left;
+  background-color: #ffffff;
+  width: auto;
+  padding: 15px; /*Added margin between content and columns */
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 5px;
+  padding-bottom: auto;
+}
+
+h1 {
+  margin: 0;
+  padding: 10px;
+}
+
+#left_side ul {
+  list-style: none;
+  margin: 12px 0px 0px 12px;
+  padding: 0px;
+}
+
+#left_side li a:link, #left_side li a:visited {
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 3px 0px 3px 3px;
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+#left_side li a:hover, #left_side li a:active {
+  font-size: 12pt; 
+  font-weight: bold;
+  padding: 3px 0px 3px 3px;;
+  color: #522D80;
+  background-color: white;
+  text-decoration: none;
+  display: block;
+}
+
+/* Responsive Design:
+- A media query is included for screens with a maximum width of 769px.
+- Adjustments include:
+  - Reduced minimum width for the body.
+  - Full-width layout for the wrapper, left sidebar, and right sidebar.
+  - Adjusted margins and paddings for better usability on smaller screens. */
+  @media screen and (max-width: 769px) {
+  body {
+    min-width: 320px;
+  }
+  
+  #wrapper {
+    padding-left: 0;
+    padding-right: 15px;
+    width: 100%;
+  }
+  
+  #left_side {
+    width: 100%;
+    float: none;
+    right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+  }
+  
+  #right_side {
+    width: 100%;
+    float: none;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  
+  #content_area {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+  }
+}

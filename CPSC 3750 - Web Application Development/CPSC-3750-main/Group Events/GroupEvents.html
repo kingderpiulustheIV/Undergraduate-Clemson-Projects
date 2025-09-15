@@ -1,0 +1,471 @@
+<!--
+// Sean Farrell
+// 6/14/2025
+// CPSC 3750
+// ASSIGNMENT: Group Events
+// DESCRIPTION: This html file showcases use of javascript animation events, drag events, input events, mouse events, and focus events. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events Demonstration - GroupEvents</title>
+    <!-- styling for the webpage -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        .section {
+            background: #1e1e1e;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section h2 {
+            color: #bb86fc;
+            border-bottom: 2px solid #bb86fc;
+            padding-bottom: 10px;
+        }
+        
+        .status {
+            background: #2d2d2d;
+            padding: 10px;
+            border-left: 4px solid #bb86fc;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Animation Events Styles */
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #cf6679, #03dac6);
+            border-radius: 10px;
+            margin: 10px;
+            display: inline-block;
+            animation: none;
+        }
+        
+        @keyframes slideRotate {
+            0% { transform: translateX(0) rotate(0deg); background: #cf6679; }
+            50% { transform: translateX(200px) rotate(180deg); background: #03dac6; }
+            100% { transform: translateX(0) rotate(360deg); background: #cf6679; }
+        }
+        
+        .animate {
+            animation: slideRotate 3s ease-in-out;
+        }
+
+        /* Drag Events Styles */
+        .draggable-item {
+            width: 80px;
+            height: 80px;
+            background: #ffb86c;
+            border: 2px solid #ff9e64;
+            border-radius: 8px;
+            margin: 10px;
+            display: inline-block;
+            cursor: move;
+            text-align: center;
+            line-height: 76px;
+            font-weight: bold;
+            color: #121212;
+        }
+        
+        .drop-zone {
+            width: 300px;
+            height: 150px;
+            border: 3px dashed #444;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 144px;
+            background: #2d2d2d;
+            transition: all 0.3s ease;
+        }
+        
+        .drop-zone.drag-over {
+            border-color: #bb86fc;
+            background: #3a2f4b;
+        }
+
+        /* Input Events Styles */
+        .input-container {
+            margin: 15px 0;
+        }
+        
+        .input-container input, .input-container textarea, .input-container select {
+            padding: 10px;
+            border: 2px solid #444;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 250px;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+        
+        .input-container input:focus, .input-container textarea:focus, .input-container select:focus {
+            border-color: #bb86fc;
+            outline: none;
+        }
+
+        /* Mouse Events Styles */
+        .mouse-demo {
+            width: 200px;
+            height: 100px;
+            background: #3a506b;
+            border: 2px solid #5b7da2;
+            border-radius: 10px;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            line-height: 96px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mouse-demo:hover {
+            background: #5b7da2;
+            transform: scale(1.05);
+        }
+
+        /* Focus Events Styles */
+        .focus-input {
+            padding: 12px;
+            border: 2px solid #444;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+        
+        .focus-input:focus {
+            border-color: #cf6679;
+            box-shadow: 0 0 10px rgba(207, 102, 121, 0.3);
+            outline: none;
+        }
+
+        .button {
+            background: #bb86fc;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        
+        .button:hover {
+            background: #a16be5;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 HTML Events Demonstration - Group Project</h1>
+    <p><strong>This page demonstrates five types of HTML events with interactive elements and clear labeling.</strong></p>
+
+    <!-- ANIMATION EVENTS SECTION -->
+    <div class="section">
+        <h2>🎬 ANIMATION EVENTS</h2>
+        <p><strong>Demonstrates:</strong> animationstart, animationiteration, animationend events</p>
+        
+        <div class="animated-box" id="animatedBox">ANIMATE</div>
+        <button class="button" onclick="startAnimation()">Start Animation</button>
+        <button class="button" onclick="stopAnimation()">Stop Animation</button>
+        
+        <div class="status" id="animationStatus">
+            Animation Status: Ready to start
+        </div>
+        
+        <p><em>Click "Start Animation" to see animation events in action!</em></p>
+    </div>
+
+    <!-- DRAG EVENTS SECTION -->
+    <div class="section">
+        <h2>🖱️ DRAG EVENTS</h2>
+        <p><strong>Demonstrates:</strong> dragstart, drag, dragenter, dragover, dragleave, drop, dragend events</p>
+        
+        <div class="draggable-item" draggable="true" id="dragItem1">ITEM 1</div>
+        <div class="draggable-item" draggable="true" id="dragItem2">ITEM 2</div>
+        <div class="draggable-item" draggable="true" id="dragItem3">ITEM 3</div>
+        
+        <div class="drop-zone" id="dropZone">
+            DROP ITEMS HERE
+        </div>
+        
+        <div class="status" id="dragStatus">
+            Drag Status: Ready to drag items
+        </div>
+        
+        <p><em>Drag the yellow items into the drop zone above!</em></p>
+    </div>
+
+    <!-- INPUT EVENTS SECTION -->
+    <div class="section">
+        <h2>⌨️ INPUT EVENTS</h2>
+        <p><strong>Demonstrates:</strong> input, change, keydown, keyup, keypress events</p>
+        
+        <div class="input-container">
+            <label><strong>Text Input:</strong></label><br>
+            <input type="text" id="textInput" placeholder="Type something here..." />
+        </div>
+        
+        <div class="input-container">
+            <label><strong>Number Input:</strong></label><br>
+            <input type="number" id="numberInput" placeholder="Enter a number..." />
+        </div>
+        
+        <div class="input-container">
+            <label><strong>Select Dropdown:</strong></label><br>
+            <select id="selectInput">
+                <option value="">Choose an option...</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+        </div>
+        
+        <div class="input-container">
+            <label><strong>Textarea:</strong></label><br>
+            <textarea id="textareaInput" placeholder="Write a longer message..." rows="3"></textarea>
+        </div>
+        
+        <div class="status" id="inputStatus">
+            Input Status: No input detected yet
+        </div>
+        
+        <p><em>Try typing, selecting options, or pressing keys in the inputs above!</em></p>
+    </div>
+
+    <!-- MOUSE EVENTS SECTION -->
+    <div class="section">
+        <h2>🖱️ MOUSE EVENTS</h2>
+        <p><strong>Demonstrates:</strong> click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove, mouseenter, mouseleave events</p>
+        
+        <div class="mouse-demo" id="mouseBox1">CLICK ME</div>
+        <div class="mouse-demo" id="mouseBox2">HOVER ME</div>
+        <div class="mouse-demo" id="mouseBox3">DOUBLE-CLICK</div>
+        
+        <div style="margin: 20px 0;">
+            <strong>Mouse Coordinates:</strong> <span id="mouseCoords">Move mouse to see coordinates</span>
+        </div>
+        
+        <div class="status" id="mouseStatus">
+            Mouse Status: Move your mouse around the colored boxes
+        </div>
+        
+        <p><em>Try clicking, double-clicking, and hovering over the boxes above!</em></p>
+    </div>
+
+    <!-- FOCUS EVENTS SECTION -->
+    <div class="section">
+        <h2>🎯 FOCUS EVENTS</h2>
+        <p><strong>Demonstrates:</strong> focus, blur, focusin, focusout events</p>
+        
+        <div style="margin: 20px 0;">
+            <label><strong>Focus Input 1:</strong></label><br>
+            <input type="text" class="focus-input" id="focusInput1" placeholder="Click to focus..." />
+        </div>
+        
+        <div style="margin: 20px 0;">
+            <label><strong>Focus Input 2:</strong></label><br>
+            <input type="email" class="focus-input" id="focusInput2" placeholder="Email address..." />
+        </div>
+        
+        <div style="margin: 20px 0;">
+            <label><strong>Focus Input 3:</strong></label><br>
+            <input type="password" class="focus-input" id="focusInput3" placeholder="Password..." />
+        </div>
+        
+        <button class="button" id="focusButton">Clickable Button</button>
+        
+        <div class="status" id="focusStatus">
+            Focus Status: No element is currently focused
+        </div>
+        
+        <p><em>Click on different input fields and the button to see focus events!</em></p>
+    </div>
+
+    <script>
+        // ANIMATION EVENTS
+        const animatedBox = document.getElementById('animatedBox');
+        const animationStatus = document.getElementById('animationStatus');
+        let animationCount = 0;
+
+        // Animation event listeners
+        animatedBox.addEventListener('animationstart', function() {
+            animationStatus.textContent = 'Animation Status: Animation started!';
+            console.log('Animation started');
+        });
+
+        animatedBox.addEventListener('animationiteration', function() {
+            animationCount++;
+            animationStatus.textContent = `Animation Status: Animation iteration ${animationCount}`;
+            console.log('Animation iteration:', animationCount);
+        });
+
+        animatedBox.addEventListener('animationend', function() {
+            animationStatus.textContent = 'Animation Status: Animation completed!';
+            console.log('Animation ended');
+            animationCount = 0;
+        });
+        // Functions to start and stop animation
+        function startAnimation() {
+            animatedBox.classList.add('animate');
+        }
+
+        function stopAnimation() {
+            animatedBox.classList.remove('animate');
+            animationStatus.textContent = 'Animation Status: Animation stopped';
+            animationCount = 0;
+        }
+
+        // DRAG EVENTS
+        const dragItems = document.querySelectorAll('.draggable-item');
+        const dropZone = document.getElementById('dropZone');
+        const dragStatus = document.getElementById('dragStatus');
+
+        // Add drag event listeners to each draggable item
+        dragItems.forEach(item => {
+            item.addEventListener('dragstart', function(e) {
+                dragStatus.textContent = `Drag Status: Started dragging ${this.textContent}`;
+                e.dataTransfer.setData('text/plain', this.textContent);
+            });
+
+            item.addEventListener('dragend', function() {
+                dragStatus.textContent = 'Drag Status: Drag operation ended';
+            });
+        });
+
+        // Add drag event listeners to the drop zone
+        dropZone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('drag-over');
+            dragStatus.textContent = 'Drag Status: Hovering over drop zone';
+        });
+        // This prevents the default behavior to allow dropping
+        dropZone.addEventListener('dragleave', function() {
+            this.classList.remove('drag-over');
+            dragStatus.textContent = 'Drag Status: Left drop zone';
+        });
+
+        // Handle the drop event
+        dropZone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            const data = e.dataTransfer.getData('text/plain');
+            dragStatus.textContent = `Drag Status: Successfully dropped ${data}!`;
+            this.innerHTML = `<strong>Dropped: ${data}</strong>`;
+            setTimeout(() => {
+                this.innerHTML = 'DROP ITEMS HERE';
+            }, 2000);
+        });
+
+        // INPUT EVENTS
+        const textInput = document.getElementById('textInput');
+        const numberInput = document.getElementById('numberInput');
+        const selectInput = document.getElementById('selectInput');
+        const textareaInput = document.getElementById('textareaInput');
+        const inputStatus = document.getElementById('inputStatus');
+        // Function to update input status
+        function updateInputStatus(event, element) {
+            inputStatus.textContent = `Input Status: ${event} on ${element} - Value: "${event.target.value}"`;
+        }
+
+        // Add event listeners for input events
+        textInput.addEventListener('input', (e) => updateInputStatus('INPUT event', 'text input'));
+        textInput.addEventListener('keydown', (e) => {
+            inputStatus.textContent = `Input Status: KEYDOWN event - Key: "${e.key}"`;
+        });
+        textInput.addEventListener('keyup', (e) => {
+            inputStatus.textContent = `Input Status: KEYUP event - Key: "${e.key}"`;
+        });
+        // This captures the keypress event
+        numberInput.addEventListener('change', (e) => updateInputStatus('CHANGE event', 'number input'));
+        selectInput.addEventListener('change', (e) => updateInputStatus('CHANGE event', 'select dropdown'));
+        textareaInput.addEventListener('input', (e) => updateInputStatus('INPUT event', 'textarea'));
+
+        // MOUSE EVENTS
+        const mouseBoxes = document.querySelectorAll('.mouse-demo');
+        const mouseStatus = document.getElementById('mouseStatus');
+        const mouseCoords = document.getElementById('mouseCoords');
+
+        // Add mouse event listeners to each box
+        mouseBoxes.forEach((box, index) => {
+            box.addEventListener('click', function() {
+                mouseStatus.textContent = `Mouse Status: CLICKED on box ${index + 1}`;
+            });
+
+            box.addEventListener('dblclick', function() {
+                mouseStatus.textContent = `Mouse Status: DOUBLE-CLICKED on box ${index + 1}`;
+            });
+
+            box.addEventListener('mouseenter', function() {
+                mouseStatus.textContent = `Mouse Status: MOUSE ENTERED box ${index + 1}`;
+            });
+
+            box.addEventListener('mouseleave', function() {
+                mouseStatus.textContent = `Mouse Status: MOUSE LEFT box ${index + 1}`;
+            });
+
+            box.addEventListener('mousedown', function() {
+                mouseStatus.textContent = `Mouse Status: MOUSE DOWN on box ${index + 1}`;
+            });
+
+            box.addEventListener('mouseup', function() {
+                mouseStatus.textContent = `Mouse Status: MOUSE UP on box ${index + 1}`;
+            });
+        });
+
+        // Track mouse movement and display coordinates
+        document.addEventListener('mousemove', function(e) {
+            mouseCoords.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+        });
+
+        // FOCUS EVENTS
+        const focusInputs = document.querySelectorAll('.focus-input');
+        const focusButton = document.getElementById('focusButton');
+        const focusStatus = document.getElementById('focusStatus');
+
+        focusInputs.forEach((input, index) => {
+            input.addEventListener('focus', function() {
+                focusStatus.textContent = `Focus Status: FOCUSED on input ${index + 1} (${this.type} type)`;
+            });
+
+            input.addEventListener('blur', function() {
+                focusStatus.textContent = `Focus Status: BLURRED from input ${index + 1} (${this.type} type)`;
+            });
+
+            input.addEventListener('focusin', function() {
+                console.log(`Focus in event on input ${index + 1}`);
+            });
+
+            input.addEventListener('focusout', function() {
+                console.log(`Focus out event on input ${index + 1}`);
+            });
+        });
+
+        focusButton.addEventListener('focus', function() {
+            focusStatus.textContent = 'Focus Status: FOCUSED on button element';
+        });
+
+        focusButton.addEventListener('blur', function() {
+            focusStatus.textContent = 'Focus Status: BLURRED from button element';
+        });
+
+        // Initialize page
+        console.log('GroupEvents.html loaded successfully with all event handlers');
+    </script>
+</body>
+</html>

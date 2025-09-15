@@ -1,0 +1,89 @@
+<!-- Sean Farrell
+6/28/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Keypress 
+DESCRIPTION: This assignment showcases keypress by chagning the background of the webpage corresponding if a user press 
+rgb respectively for red green blue-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script> 
+    <title>Displaying Keypresses</title>
+<style>
+        /* styles for a basic dark theme */
+        *{
+                font-family: Arial, sans-serif;
+                color: black;
+        }
+        
+        #input-area {
+                margin: 20px 0;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+        }
+        
+        .input-field {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 16px;
+        }
+        
+        #keys {
+                min-height: 100px;
+                border: 1px solid #eee;
+                margin-top: 20px;
+                font-size: 18px;
+                line-height: 1.5;
+        }
+    </style>
+    <script type="text/javascript">
+    function displayKey(e) {
+       // which key was pressed?
+       if (e.keyCode) {
+          var keycode=e.keyCode;
+       }  else {
+          var keycode=e.which;
+       }
+        // Convert keycode to character
+        var character = String.fromCharCode(keycode);
+
+        // Force vowels to uppercase
+        if ('aeiou'.indexOf(character.toLowerCase()) !== -1) {
+        character = character.toUpperCase();
+        }
+
+        // Change background and text color based on key press
+        if (character.toLowerCase() === 'r') {
+                document.body.style.backgroundColor = 'red';
+                document.body.style.color = 'white';
+        } else if (character.toLowerCase() === 'g') {
+                document.body.style.backgroundColor = 'green';
+                document.body.style.color = 'white';
+        } else if (character.toLowerCase() === 'b') {
+                document.body.style.backgroundColor = 'skyblue';
+                document.body.style.color = 'white';
+        }
+        
+        // find the object for the destination paragraph
+        var keysParagraph = document.getElementById('keys');
+        
+        // add the character to the paragraph
+        keysParagraph.innerHTML += character;
+       }
+   </script>
+  </head>
+  <body onkeypress="displayKey(event)">
+    <h1>Displaying Typed Characters</h1>
+    <p>This document includes a simple script that displays 
+    the keys you type as a new paragraph below. Type a few keys 
+    to try it. </p>
+    <div id="keys"></div>
+  </body>
+</html>

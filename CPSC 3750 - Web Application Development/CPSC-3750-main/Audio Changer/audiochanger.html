@@ -1,0 +1,435 @@
+<!-- 
+Sean Farrell
+7/5/2025
+CPSC 3750 Wooster
+ASSIGNMENT: Project 1: Audio Changer
+DESCRIPTION: uses html, and javascript to create a website that is an audio player and able to add timestamp shortcuts to the audio player.
+audiochanger.html is the main file that is run in the browser. It contains the css and js code to create the logic and styling audio player, and the ability to add segments to the audio player.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Segment Player</title>
+    <script src="navbar.js"></script>
+<style>
+    /* basic dark mode styling for the audio player, navbar and segments */
+    #navbar-container {
+        width: 100%;
+        background-color: #1f1f1f;
+        position: relative;
+        z-index: 1000;
+    }
+
+    #navbar {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        text-align: left;
+        background-color: #1f1f1f;
+        color: white;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: auto;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #61dafb;
+    }
+    
+    .player-container {
+        background-color: #2a2a2a;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+    }
+    
+    .file-info {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+        color: #61dafb;
+    }
+    
+    .controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #414a50;
+        color: #e0e0e0;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+    }
+    
+    button:hover {
+        background-color: #536878;
+    }
+    
+    button:disabled {
+        background-color: #3a3a3a;
+        cursor: not-allowed;
+    }
+    
+    .time-display {
+        text-align: center;
+        font-size: 1.5em;
+        margin: 15px 0;
+        font-family: monospace;
+        color: #61dafb;
+    }
+    
+    .playlist {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .segment-button {
+        background-color: #10aa36;
+        text-align: left;
+        padding: 12px;
+        border-radius: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .segment-button.active {
+        background-color: #a83a32;
+        font-weight: bold;
+    }
+    
+    .segment-button:hover {
+        background-color: #3a6b52;
+    }
+    
+    .segment-button.active:hover {
+        background-color: #bf4940;
+    }
+    
+    .edit-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 15px 0;
+    }
+    
+    .edit-controls button {
+        background-color: #5d4777;
+    }
+    
+    .edit-controls button:hover {
+        background-color: #6f5591;
+    }
+</style>
+</head>
+<body>
+    
+    <!-- Navbar container and navbar -->
+    <div id="navbar-container">
+        </div> <nav id="navbar">
+    </nav></div>
+    
+    <h1>Audio Segment Player</h1>
+    
+    <!-- Div containing the audio player and controls -->
+    <div class="player-container">
+        <div class="file-info">
+            Now Playing: <span id="filename">No file loaded</span>
+        </div>
+        
+        <audio id="audio-player" style="width: 100%;">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div class="time-display">
+            <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+        </div>
+        
+        <div class="controls">
+            <button id="rewind-btn" title="Rewind 5 seconds">⏪ -5s</button>
+            <button id="play-pause-btn" title="Play/Pause">▶️ Play</button>
+            <button id="forward-btn" title="Forward 5 seconds">+5s ⏩</button>
+        </div>
+        
+        <div class="edit-controls">
+            <button id="add-segment-btn" title="Add segment at current time">➕ Add Segment</button>
+            <button id="remove-segment-btn" title="Remove current segment">❌ Remove Segment</button>
+        </div>
+    </div>
+    
+    <h2>Segments</h2>
+    
+    <!-- Div for the pre-made and user created segments will be located here -->
+    <div id="playlist" class="playlist">
+    </div>
+
+    <!-- Include the JavaScript code for functionality of the adio player-->
+    <script>
+        
+        // Wait for the DOM to be fully loaded before running the script
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Audio element
+            const audioPlayer = document.getElementById('audio-player');
+            
+            // Display elements
+            const filenameElement = document.getElementById('filename');
+            const currentTimeElement = document.getElementById('current-time');
+            const durationElement = document.getElementById('duration');
+            const playlistElement = document.getElementById('playlist');
+            
+            // Control buttons
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const rewindBtn = document.getElementById('rewind-btn');
+            const forwardBtn = document.getElementById('forward-btn');
+            const addSegmentBtn = document.getElementById('add-segment-btn');
+            const removeSegmentBtn = document.getElementById('remove-segment-btn');
+            
+            // Set audio source - you would need to replace this with your actual audio file
+            const audioFile = 'Kevin MacLeod.mp3'; // Replace with your audio file
+            audioPlayer.src = audioFile;
+            filenameElement.textContent = audioFile;
+            
+            // Sample playlist data (title and times in seconds)
+            let playlist = [
+                { title: "Local Forcast", startTime: 0, endTime: 165 },
+                { title: "Hitman", startTime: 165, endTime: 370 },
+                { title: "Hyperfun", startTime: 370, endTime: 601 },
+                { title: "Wallpaper", startTime: 601, endTime: 689 },
+                { title: "Sneaky Snitch", startTime: 689, endTime: 823 },
+                { title: "Batty McFaddin", startTime: 823, endTime: 900 }
+            ];
+            
+            let currentSegment = null;
+            let isSegmentPlaying = false;
+            
+            // Initialize the player
+            audioPlayer.addEventListener('loadedmetadata', function() {
+                updateDurationDisplay();
+                renderPlaylist();
+            });
+            
+            // Update current time display
+            audioPlayer.addEventListener('timeupdate', function() {
+                updateTimeDisplay();
+                
+                // Check if we need to stop at end of segment
+                if (isSegmentPlaying && currentSegment && audioPlayer.currentTime >= currentSegment.endTime) {
+                    audioPlayer.pause();
+                    isSegmentPlaying = false;
+                    updatePlayPauseButton();
+                }
+            });
+            
+            // Play/Pause toggle
+            playPauseBtn.addEventListener('click', function() {
+                togglePlayPause();
+            });
+            
+            // Rewind 5 seconds
+            rewindBtn.addEventListener('click', function() {
+                skipTime(-5);
+            });
+            
+            // Forward 5 seconds
+            forwardBtn.addEventListener('click', function() {
+                skipTime(5);
+            });
+            
+            // Add segment button
+            addSegmentBtn.addEventListener('click', function() {
+                addNewSegment();
+            });
+            
+            // Remove segment button
+            removeSegmentBtn.addEventListener('click', function() {
+                removeCurrentSegment();
+            });
+            
+            // Listen for when the audio naturally ends
+            audioPlayer.addEventListener('ended', function() {
+            
+                // Reset play state
+                isSegmentPlaying = false;
+                currentSegment = null;
+                        
+                // Update button to show "Play"
+                playPauseBtn.textContent = "▶️ Play";
+                        
+                // Remove active class from any segment buttons
+                const segmentButtons = document.querySelectorAll('.segment-button');
+                segmentButtons.forEach(button => {
+                        button.classList.remove('active');});
+            });
+
+            // Format time in MM:SS format
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+            
+            // Update time display
+            function updateTimeDisplay() {
+                currentTimeElement.textContent = formatTime(audioPlayer.currentTime);
+            }
+            
+            // Update duration display
+            function updateDurationDisplay() {
+                durationElement.textContent = formatTime(audioPlayer.duration);
+            }
+            
+            // Toggle play/pause
+            function togglePlayPause() {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    playPauseBtn.textContent = "⏸️ Pause";
+                } else {
+                    audioPlayer.pause();
+                    playPauseBtn.textContent = "▶️ Play";
+                }
+            }
+            
+            // Update play/pause button text
+            function updatePlayPauseButton() {
+                playPauseBtn.textContent = audioPlayer.paused ? "▶️ Play" : "⏸️ Pause";
+            }
+            
+            // Skip forward or backward
+            function skipTime(seconds) {
+                const newTime = audioPlayer.currentTime + seconds;
+                audioPlayer.currentTime = Math.max(0, Math.min(newTime, audioPlayer.duration));
+                updateTimeDisplay();
+            }
+            
+            // Play a specific segment
+            function playSegment(segment) {
+                currentSegment = segment;
+                audioPlayer.currentTime = segment.startTime;
+                audioPlayer.play();
+                isSegmentPlaying = true;
+                updatePlayPauseButton();
+                
+                // Update active segment in playlist UI
+                const segmentButtons = document.querySelectorAll('.segment-button');
+                segmentButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                const activeButton = document.querySelector(`[data-index="${playlist.indexOf(segment)}"]`);
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                }
+            }
+            
+            // Render the playlist
+            function renderPlaylist() {
+                playlistElement.innerHTML = '';
+                
+                playlist.forEach((segment, index) => {
+                    const button = document.createElement('button');
+                    button.classList.add('segment-button');
+                    button.setAttribute('data-index', index);
+                    button.textContent = `${segment.title} (${formatTime(segment.startTime)} - ${formatTime(segment.endTime)})`;
+                
+                    button.addEventListener('click', function() {
+                        playSegment(segment);
+                });
+                
+                playlistElement.appendChild(button);
+                });
+            }
+                
+            // Add a new segment at current time
+            function addNewSegment() {
+                const currentTime = audioPlayer.currentTime;
+                const title = prompt("Enter a title for this segment:");
+                
+                // If no title is provided, do not add the segment
+                if (!title) return; 
+                
+                // Find the correct position to insert the new segment
+                let insertIndex = 0;
+                while (insertIndex < playlist.length && playlist[insertIndex].startTime < currentTime) {
+                    insertIndex++;
+                }
+                
+                // Calculate end time (use next segment's start time or audio duration)
+                let endTime;
+                if (insertIndex < playlist.length) {
+                    endTime = playlist[insertIndex].startTime;
+                } else {
+                    endTime = audioPlayer.duration;
+                }
+                
+                // Update end time of previous segment if needed
+                if (insertIndex > 0) {
+                    playlist[insertIndex - 1].endTime = currentTime;
+                }
+                
+                // Create new segment
+                const newSegment = {
+                    title: title,
+                    startTime: currentTime,
+                    endTime: endTime
+                };
+                
+                // Insert the segment
+                playlist.splice(insertIndex, 0, newSegment);
+                
+                // Re-render playlist
+                renderPlaylist();
+                
+                // Set as current segment
+                currentSegment = newSegment;
+            }
+            
+            // Remove current segment
+            function removeCurrentSegment() {
+                if (!currentSegment) {
+                    alert("No segment is currently selected.");
+                    return;
+                }
+                
+                const index = playlist.indexOf(currentSegment);
+                if (index === -1) return;
+                
+                // If there's a next segment, update its start time
+                if (index < playlist.length - 1) {
+                    playlist[index + 1].startTime = currentSegment.startTime;
+                }
+                
+                // Remove the segment
+                playlist.splice(index, 1);
+                
+                // Clear current segment
+                currentSegment = null;
+                isSegmentPlaying = false;
+                
+                // Re-render playlist
+                renderPlaylist();
+            }
+            
+            // Initial render
+            renderPlaylist();
+        });
+    </script>
+</body>
+</html>

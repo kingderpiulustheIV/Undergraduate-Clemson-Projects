@@ -1,0 +1,163 @@
+/* Sean Farrell
+6/28/2025
+CPSC 3750 Wooster
+ASSIGNMENT: jQuery  
+DESCRIPTION: This assignment showcases using Jquery library buy using, cursor interaction, fade methods datepicker and accordion methods.
+This jquery.css file is to set the theme for this webpage.*/
+
+
+/* Styling for a Dark Theme */
+*{
+        font-family: Arial, sans-serif;
+}
+
+.button-container {
+        margin: 10px 0;
+        }
+.ui-progressbar {
+        margin: 20px 0;
+}
+
+.div-container {
+        margin-bottom: 10px;
+}
+body {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+}
+
+.button-container button {
+        background-color: #333;
+        color: #f0f0f0;
+        border: 1px solid #555;
+}
+
+.ui-progressbar {
+        background-color: #333;
+        border: 1px solid #555;
+}
+
+.ui-progressbar-value {
+        background-color: #4CAF50;
+}
+
+#datepicker-container .ui-datepicker, 
+#accordion-container .ui-accordion {
+        background-color: #2d2d2d;
+        color: #f0f0f0;
+        border: 1px solid #555;
+}
+
+.ui-state-default, 
+.ui-widget-content .ui-state-default {
+        background-color: #444;
+        color: #f0f0f0;
+        border: 1px solid #666;
+}
+
+.ui-state-active, 
+.ui-widget-content .ui-state-active {
+        background-color: #555;
+        color: #fff;
+}
+
+.ui-state-hover, 
+.ui-widget-content .ui-state-hover {
+        background-color: #666;
+}
+
+.div-container {
+        background-color: #2d2d2d;
+        border: 1px solid #555;
+        padding: 10px;
+}
+
+/* Enhanced Progress Bar Styling */
+#progressbar {
+        position: relative;
+        height: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+}
+
+.ui-progressbar .ui-progressbar-value {
+        height: 100%;
+        margin: 0;
+        border-radius: 3px;
+        transition: width 0.5s ease;
+}
+
+.progress-label {
+        color: #f0f0f0;
+        z-index: 1;
+}
+
+#progress-complete {
+        color: #4CAF50;
+        font-weight: bold;
+        margin-left: 10px;
+}
+
+/* Datepicker Styling */
+.ui-datepicker {
+        z-index: 1000 !important; 
+        background-color: #2d2d2d !important;
+        color: #f0f0f0 !important;
+        border: 1px solid #555 !important;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+    }
+    
+    .ui-datepicker-header {
+        background-color: #444 !important;
+        color: #f0f0f0 !important;
+        border: 1px solid #666 !important;
+    }
+    
+    .ui-datepicker-calendar th {
+        background-color: #333 !important;
+        color: #f0f0f0 !important;
+    }
+    
+    .ui-datepicker-calendar td {
+        background-color: #2d2d2d !important;
+        border: 1px solid #444 !important;
+    }
+    
+    .ui-datepicker-calendar td a {
+        color: #f0f0f0 !important;
+    }
+    
+    .ui-datepicker-calendar td a.ui-state-active {
+        background-color: #4CAF50 !important;
+        color: white !important;
+    }
+    
+    .ui-datepicker-calendar td a.ui-state-highlight {
+        background-color: #666 !important;
+        color: white !important;
+    }
+    
+    .ui-datepicker-calendar td a:hover {
+        background-color: #555 !important;
+        color: white !important;
+    }
+    
+    .ui-datepicker-prev, .ui-datepicker-next {
+        background-color: #444 !important;
+        color: #f0f0f0 !important;
+    }
+    
+    /* Style the datepicker input */
+    #datepicker {
+        background-color: #333;
+        color: #f0f0f0;
+        border: 1px solid #555;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+    
+    #datepicker:focus {
+        outline: none;
+        border-color: #4CAF50;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
