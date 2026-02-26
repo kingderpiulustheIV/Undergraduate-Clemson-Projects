@@ -141,7 +141,6 @@ void StarterViewer::Init( const std::vector<std::string>& args )
 
 void StarterViewer::MainLoop()
 {
-   Usage();
    glutMainLoop();
 }
 

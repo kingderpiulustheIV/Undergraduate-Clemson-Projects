@@ -9,3 +9,5 @@ COURSE NUMBER GIDE:
 2000 Level: sophomore year
 
 3000 Level: junior year
+
+4000 Level: Senior year

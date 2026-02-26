@@ -23,6 +23,8 @@ class ImgProc
 {
   public:
     ImgProc();
+    ImgProc(const ImgProc& other);  // Copy constructor
+    ImgProc& operator=(const ImgProc& other);  // Copy assignment operator
     ~ImgProc();
 
     //! Read an image from file
@@ -30,6 +32,12 @@ class ImgProc
     
     //! Write image to file
     bool WriteImage(const std::string& filename);
+    
+    //! Clear the image data
+    void clear();
+    
+    //! Clear and allocate new image data
+    void clear(int nx, int ny, int nc);
     
     //! Get image width
     int GetWidth() const { return width; }

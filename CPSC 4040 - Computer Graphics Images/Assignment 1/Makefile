@@ -6,6 +6,7 @@ OFILES = \
 	 base/StarterViewer.o \
 	 base/oiiostuff.o \
 	 base/ImgProc.o \
+	 base/ImageRenderer.o \
 	 base/ImageViewer.o
 
 ROOTDIR = .

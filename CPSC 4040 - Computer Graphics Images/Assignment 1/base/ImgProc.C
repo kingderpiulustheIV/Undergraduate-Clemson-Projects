@@ -14,6 +14,7 @@
 #include "ImgProc.h"
 #include <OpenImageIO/imageio.h>
 #include <iostream>
+#include <algorithm>
 
 using namespace OIIO;
 using namespace std;
@@ -23,6 +24,37 @@ namespace starter {
     // Constructor
     ImgProc::ImgProc() : width(0), height(0), channels(0), loaded(false)
     {
+    }
+
+    // Copy constructor
+    ImgProc::ImgProc(const ImgProc& other) 
+        : width(other.width), height(other.height), channels(other.channels), loaded(other.loaded)
+    {
+        if (other.pixels && loaded) {
+            int size = width * height * channels;
+            pixels = std::unique_ptr<float[]>(new float[size]);
+            std::copy(other.pixels.get(), other.pixels.get() + size, pixels.get());
+        }
+    }
+
+    // Copy assignment operator
+    ImgProc& ImgProc::operator=(const ImgProc& other)
+    {
+        if (this != &other) {
+            width = other.width;
+            height = other.height;
+            channels = other.channels;
+            loaded = other.loaded;
+            
+            if (other.pixels && loaded) {
+                int size = width * height * channels;
+                pixels = std::unique_ptr<float[]>(new float[size]);
+                std::copy(other.pixels.get(), other.pixels.get() + size, pixels.get());
+            } else {
+                pixels.reset();
+            }
+        }
+        return *this;
     }
 
     // Destructor
@@ -110,6 +142,35 @@ namespace starter {
         }
         
         return success;
+    }
+
+    // Clear the image data
+    void ImgProc::clear()
+    {
+        pixels.reset();
+        width = 0;
+        height = 0;
+        channels = 0;
+        loaded = false;
+    }
+
+    // Clear and allocate new image data
+    void ImgProc::clear(int nx, int ny, int nc)
+    {
+        if (nx <= 0 || ny <= 0 || nc <= 0) {
+            clear();
+            return;
+        }
+        
+        width = nx;
+        height = ny;
+        channels = nc;
+        
+        int size = width * height * channels;
+        pixels = std::unique_ptr<float[]>(new float[size]());  // Initialize to zero
+        loaded = true;
+        
+        cout << "Allocated new image: " << width << "x" << height << " with " << channels << " channels" << endl;
     }
 
 }
