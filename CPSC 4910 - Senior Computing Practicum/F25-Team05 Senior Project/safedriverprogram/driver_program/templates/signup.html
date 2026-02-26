@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="field">
+        <label class="label">Username</label>
+        <div class="control">
+            <input class="input" type="text" name="username" placeholder="Enter a username" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+            <input class="input" type="email" name="email" placeholder="Enter your email" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+            <input class="input" type="password" name="password" placeholder="Enter a password" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Confirm Password</label>
+        <div class="control">
+            <input class="input" type="password" name="password2" placeholder="Re-enter your password" required>
+        </div>
+    </div>
+
+    <!-- ✅ Profile picture upload -->
+    <div class="field">
+        <label class="label">Profile Picture</label>
+        <div class="control">
+            <input class="input" type="file" name="avatar" accept="image/*">
+        </div>
+    </div>
+
+    <div class="field" style="margin-top: 1em;">
+        <div class="control">
+            <button class="button is-link" href="{% url 'signup' %}" type="submit">Sign Up</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

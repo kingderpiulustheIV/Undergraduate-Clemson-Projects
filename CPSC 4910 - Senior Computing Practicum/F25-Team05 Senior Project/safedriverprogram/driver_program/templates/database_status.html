@@ -1,0 +1,370 @@
+{% extends 'base.html' %}
+
+{% block title %}Database Status - Safe Driver Program{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+      <div class="box">
+        <h1 class="title has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-database fa-2x"></i>
+          </span>
+          <br>
+          Database Connection Status
+        </h1>
+        
+        {% if status.connected %}
+          <div class="notification is-success">
+            <span class="icon">
+              <i class="fas fa-check-circle"></i>
+            </span>
+            <strong>Connected</strong> - Database connection successful!
+          </div>
+        {% else %}
+          <div class="notification is-danger">
+            <span class="icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            <strong>Disconnected</strong> - Database connection failed!
+          </div>
+        {% endif %}
+        
+        <!-- Connection Performance Section -->
+        {% if status.connected %}
+          <div class="box has-background-info-light">
+            <h2 class="subtitle">
+              <span class="icon has-text-info">
+                <i class="fas fa-tachometer-alt"></i>
+              </span>
+              Connection Performance
+            </h2>
+            
+            <div class="columns">
+              <div class="column">
+                <div class="level">
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">Current Ping</p>
+                      <p class="title is-4">
+                        {{ status.ping_ms }} ms
+                        {% if status.ping_status == 'excellent' %}
+                          <span class="icon has-text-success"><i class="fas fa-circle"></i></span>
+                        {% elif status.ping_status == 'good' %}
+                          <span class="icon has-text-warning"><i class="fas fa-circle"></i></span>
+                        {% elif status.ping_status == 'slow' %}
+                          <span class="icon has-text-danger"><i class="fas fa-circle"></i></span>
+                        {% endif %}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">Average Ping</p>
+                      <p class="title is-4">{{ status.avg_ping }} ms</p>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">Min/Max Ping</p>
+                      <p class="title is-6">{{ status.min_ping }} / {{ status.max_ping }} ms</p>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">Query Time</p>
+                      <p class="title is-4">{{ status.query_time }} ms</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Ping Status Indicator -->
+            <div class="has-text-centered">
+              {% if status.ping_status == 'excellent' %}
+                <span class="tag is-success is-large">
+                  <span class="icon"><i class="fas fa-bolt"></i></span>
+                  <span>Excellent Connection</span>
+                </span>
+              {% elif status.ping_status == 'good' %}
+                <span class="tag is-warning is-large">
+                  <span class="icon"><i class="fas fa-check"></i></span>
+                  <span>Good Connection</span>
+                </span>
+              {% elif status.ping_status == 'slow' %}
+                <span class="tag is-danger is-large">
+                  <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                  <span>Slow Connection</span>
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        
+        <div class="content">
+          <div class="box has-background-light">
+            <h2 class="subtitle">
+              <span class="icon">
+                <i class="fas fa-info-circle"></i>
+              </span>
+              Database Information
+            </h2>
+            
+            <div class="columns">
+              <div class="column">
+                <table class="table is-fullwidth">
+                  <tbody>
+                    <tr>
+                      <td><strong>Engine:</strong></td>
+                      <td>{{ status.engine|default:"Not available" }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Database Name:</strong></td>
+                      <td>{{ status.database_name|default:"Not available" }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Host:</strong></td>
+                      <td>{{ status.host|default:"Not available" }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Port:</strong></td>
+                      <td>{{ status.port|default:"Not available" }}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>User:</strong></td>
+                      <td>{{ status.user|default:"Not available" }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          {% if status.connected %}
+            <div class="columns">
+              <div class="column">
+                <div class="box has-background-primary-light">
+                  <h3 class="subtitle">
+                    <span class="icon has-text-primary">
+                      <i class="fas fa-chart-bar"></i>
+                    </span>
+                    Database Statistics
+                  </h3>
+                  <div class="level">
+                    <div class="level-item has-text-centered">
+                      <div>
+                        <p class="heading">Total Users</p>
+                        <p class="title is-3">{{ status.user_count|default:"0" }}</p>
+                      </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                      <div>
+                        <p class="heading">Total Tables</p>
+                        <p class="title is-3">{{ status.table_count|default:"Unknown" }}</p>
+                      </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                      <div>
+                        <p class="heading">Database Size</p>
+                        <p class="title is-4">{{ status.db_size|default:"Unknown" }} MB</p>
+                      </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                      <div>
+                        <p class="heading">Version</p>
+                        <p class="title is-6">{{ status.db_version|default:"Unknown" }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          
+          {% if status.error %}
+            <div class="box has-background-danger-light">
+              <h3 class="subtitle has-text-danger">
+                <span class="icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                Error Details
+              </h3>
+              <pre class="has-background-white" style="padding: 1rem; border-left: 4px solid #ff3860;">{{ status.error }}</pre>
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="field is-grouped is-grouped-centered" style="margin-top: 2rem;">
+          <div class="control">
+            <a href="{% url 'database_status' %}" class="button is-primary">
+              <span class="icon">
+                <i class="fas fa-sync-alt"></i>
+              </span>
+              <span>Refresh Status</span>
+            </a>
+          </div>
+          <div class="control">
+            <button class="button is-info" onclick="runPingTest()">
+              <span class="icon">
+                <i class="fas fa-stopwatch"></i>
+              </span>
+              <span>Run Ping Test</span>
+            </button>
+          </div>
+          <div class="control">
+            <a href="{% url 'homepage' %}" class="button is-light">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+              <span>Back to Home</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="has-text-centered" style="margin-top: 1rem;">
+          <p class="is-size-7 has-text-grey">
+            <em>Last Updated: {% now "F j, Y, g:i A" %}</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ping Test Results Modal -->
+<div class="modal" id="pingModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        <span class="icon"><i class="fas fa-stopwatch"></i></span>
+        Ping Test Results
+      </p>
+      <button class="delete" aria-label="close" onclick="closePingModal()"></button>
+    </header>
+    <section class="modal-card-body">
+      <div id="pingResults">
+        <div class="has-text-centered">
+          <span class="icon is-large has-text-info">
+            <i class="fas fa-spinner fa-pulse fa-2x"></i>
+          </span>
+          <p>Running ping test...</p>
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" onclick="closePingModal()">Close</button>
+    </footer>
+  </div>
+</div>
+
+<!-- Debug Information (only show when DEBUG=True) -->
+{% if debug %}
+<div class="container" style="margin-top: 2rem;">
+  <div class="box has-background-grey-lighter">
+    <h4 class="subtitle">Debug Info:</h4>
+    <pre><strong>Status Object:</strong> {{ status }}</pre>
+    <pre><strong>Connection Status:</strong> {{ status.connected }}</pre>
+    <pre><strong>Ping Status:</strong> {{ status.ping_status }}</pre>
+    <pre><strong>Errors:</strong> {{ status.error|default:"None" }}</pre>
+  </div>
+</div>
+{% endif %}
+
+<script>
+function runPingTest() {
+    document.getElementById('pingModal').classList.add('is-active');
+    
+    // Show loading state
+    document.getElementById('pingResults').innerHTML = `
+        <div class="has-text-centered">
+            <span class="icon is-large has-text-info">
+                <i class="fas fa-spinner fa-pulse fa-2x"></i>
+            </span>
+            <p>Running ping test...</p>
+        </div>
+    `;
+    
+    // Fetch ping results
+    fetch('{% url "database_status" %}')
+        .then(response => response.text())
+        .then(html => {
+            // Parse the response to extract ping data
+            setTimeout(() => {
+                document.getElementById('pingResults').innerHTML = `
+                    <div class="content">
+                        <div class="level">
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <p class="heading">Current Ping</p>
+                                    <p class="title is-4 has-text-primary">{{ status.ping_ms }} ms</p>
+                                </div>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <p class="heading">Average</p>
+                                    <p class="title is-4 has-text-info">{{ status.avg_ping }} ms</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification is-success">
+                            <span class="icon"><i class="fas fa-check"></i></span>
+                            Ping test completed successfully!
+                        </div>
+                        <p class="has-text-centered">
+                            <button class="button is-primary" onclick="window.location.reload()">
+                                <span class="icon"><i class="fas fa-sync-alt"></i></span>
+                                <span>Refresh Page</span>
+                            </button>
+                        </p>
+                    </div>
+                `;
+            }, 2000); // Simulate 2 second test
+        })
+        .catch(error => {
+            document.getElementById('pingResults').innerHTML = `
+                <div class="notification is-danger">
+                    <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                    Error running ping test: ${error.message}
+                </div>
+            `;
+        });
+}
+
+function closePingModal() {
+    document.getElementById('pingModal').classList.remove('is-active');
+}
+
+// Auto-refresh every 30 seconds if page is visible
+let refreshInterval;
+
+function startAutoRefresh() {
+    refreshInterval = setInterval(() => {
+        if (!document.hidden) {
+            console.log('Auto-refreshing database status...');
+            // Refresh just the ping indicator
+            fetch('{% url "database_status" %}')
+                .then(response => response.text())
+                .then(html => {
+                    console.log('Status updated');
+                })
+                .catch(error => console.error('Auto-refresh failed:', error));
+        }
+    }, 30000); // 30 seconds
+}
+
+// Start auto-refresh when page loads
+document.addEventListener('DOMContentLoaded', startAutoRefresh);
+
+// Stop auto-refresh when page is hidden
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        clearInterval(refreshInterval);
+    } else {
+        startAutoRefresh();
+    }
+});
+</script>
+{% endblock %}

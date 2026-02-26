@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+
+# Django static and media
+staticfiles/
+media/
+
+# Local env files
+server_requirements.txt
+*.pyc
+safedriverprogram/driver_program/__pycache__/models.cpython-312.pyc
+safedriverprogram/driver_program/__pycache__/urls.cpython-312.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+safedriverprogram/driver_program/__pycache__/urls.cpython-312.pyc
+safedriverprogram/driver_program/__pycache__/views.cpython-312.pyc
+*.pyc
